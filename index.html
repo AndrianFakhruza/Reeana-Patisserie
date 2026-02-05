@@ -3,217 +3,297 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ulvoria Patisserie | Premium Treats</title>
+    <title>Ulvoria Patisserie | Premium Baked Goods</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        'primary-dark': '#561C24',
-                        'primary-light': '#6D2932',
-                        'accent-tan': '#C7B7A3',
-                        'accent-cream': '#E8D8C4',
+                        primary: '#561C24',
+                        secondary: '#6D2932',
+                        tan: '#C7B7A3',
+                        cream: '#E8D8C4',
                     },
                     fontFamily: {
-                        'serif': ['Playfair Display', 'serif'],
-                        'sans': ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                        sans: ['Poppins', 'sans-serif'],
                     }
                 }
             }
         }
     </script>
     <style>
-        .hero-bg {
-            /* Menggunakan gambar brownies yang estetik */
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1606312619070-d48b4c652a52?auto=format&fit=crop&q=80&w=1920');
-            background-size: cover;
-            background-position: center;
-        }
+        .hero-bg { background: linear-gradient(135deg, rgba(86,28,36,.85), rgba(109,41,50,.75)), url('https://images.unsplash.com/photo-1606312619070-d48b4c652a52?auto=format&fit=crop&q=80&w=1920') center/cover fixed; }
+        .reveal { opacity: 0; transform: translateY(30px); transition: all .8s; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+        .img-zoom { transition: transform .6s; }
+        .img-zoom:hover { transform: scale(1.1); }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #E8D8C4; }
+        ::-webkit-scrollbar-thumb { background: #561C24; border-radius: 10px; }
     </style>
 </head>
-<body class="bg-accent-cream font-sans text-primary-dark">
+<body class="bg-cream text-primary font-sans">
 
-    <nav class="fixed w-full z-50 bg-primary-dark/95 backdrop-blur-md text-accent-cream px-8 py-4 flex justify-between items-center shadow-lg">
-        <div class="text-2xl font-serif font-bold tracking-wider italic">ULVORIA</div>
-        <div class="hidden md:flex space-x-8 font-medium">
-            <a href="#" class="hover:text-accent-tan transition">Home</a>
-            <a href="#about" class="hover:text-accent-tan transition">About</a>
-            <a href="#menu" class="hover:text-accent-tan transition">Menu</a>
-            <a href="#faq" class="hover:text-accent-tan transition">FAQ</a>
-            <a href="#contact" class="hover:text-accent-tan transition">Contact</a>
+    <!-- Nav -->
+    <nav id="nav" class="fixed w-full z-50 bg-primary/95 backdrop-blur-md text-cream px-6 py-4 transition-all">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 bg-tan rounded-full flex items-center justify-center">
+                    <i class="fas fa-cookie-bite text-primary text-xl"></i>
+                </div>
+                <span class="font-serif text-2xl font-bold">Ulvoria</span>
+            </div>
+            <div class="hidden md:flex gap-6 text-sm">
+                <a href="#home" class="hover:text-tan transition">Beranda</a>
+                <a href="#about" class="hover:text-tan transition">Tentang</a>
+                <a href="#menu" class="hover:text-tan transition">Menu</a>
+                <a href="#faq" class="hover:text-tan transition">FAQ</a>
+            </div>
+            <a href="#contact" class="hidden md:block bg-tan text-primary px-6 py-2 rounded-full font-semibold hover:bg-white transition">Kontak</a>
+            <button onclick="toggleMenu()" class="md:hidden text-2xl"><i class="fas fa-bars"></i></button>
         </div>
     </nav>
 
-    <header id="home" class="h-screen hero-bg flex items-center justify-center text-center text-white px-4">
-        <div class="max-w-3xl">
-            <h1 class="font-serif text-5xl md:text-7xl mb-4 drop-shadow-2xl">Ulvoria Patisserie</h1>
-            <p class="text-lg md:text-xl font-light italic tracking-wide opacity-90">"Sweetness in every bite, crafted with passion."</p>
-            <a href="#menu" class="mt-8 inline-block bg-accent-tan hover:bg-primary-light text-primary-dark hover:text-white px-8 py-3 rounded-full transition-all duration-300 font-semibold uppercase tracking-widest text-sm shadow-xl">Lihat Menu</a>
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="fixed top-0 right-0 h-full w-64 bg-primary z-50 transform translate-x-full transition-transform">
+        <button onclick="toggleMenu()" class="absolute top-6 right-6 text-cream text-2xl"><i class="fas fa-times"></i></button>
+        <div class="flex flex-col gap-6 mt-20 px-8 text-cream">
+            <a href="#home" onclick="toggleMenu()">Beranda</a>
+            <a href="#about" onclick="toggleMenu()">Tentang</a>
+            <a href="#menu" onclick="toggleMenu()">Menu</a>
+            <a href="#faq" onclick="toggleMenu()">FAQ</a>
+            <a href="#contact" onclick="toggleMenu()">Kontak</a>
+        </div>
+    </div>
+
+    <!-- Hero -->
+    <header id="home" class="min-h-screen hero-bg flex items-center justify-center text-center text-white px-4">
+        <div class="max-w-4xl reveal">
+            <div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur px-6 py-2 rounded-full mb-8 border border-white/20">
+                <i class="fas fa-star text-tan"></i>
+                <span class="text-sm font-medium">Premium Patisserie</span>
+            </div>
+            <h1 class="font-serif text-6xl md:text-8xl mb-4 font-bold italic">Ulvoria</h1>
+            <p class="text-xl md:text-2xl mb-8 text-tan">Patisserie</p>
+            <p class="text-lg md:text-xl mb-12 max-w-2xl mx-auto">Membawa euphoria di setiap gigitan dengan baked goods premium dari Banda Aceh</p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="#menu" class="bg-tan text-primary px-8 py-4 rounded-full font-bold hover:bg-white transition">Lihat Menu</a>
+                <a href="https://wa.me/6281314032160" class="border-2 border-white/50 px-8 py-4 rounded-full font-bold hover:bg-white hover:text-primary transition">Order via WhatsApp</a>
+            </div>
         </div>
     </header>
 
-    <section id="about" class="py-24 px-8 bg-accent-cream">
-        <div class="max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-12">
-            <div class="md:w-1/2">
-                <img src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&q=80&w=800" alt="Kitchen" class="rounded-2xl shadow-2xl">
-            </div>
-            <div class="md:w-1/2">
-                <h2 class="font-serif text-4xl mb-6">About Our Patisserie</h2>
-                <p class="text-lg leading-relaxed mb-6 opacity-90">
-                    Bermula dari kecintaan kami terhadap hidangan penutup yang otentik, <strong>Ulvoria Patisserie</strong> hadir untuk memberikan pengalaman rasa yang premium bagi para pecinta manis.
-                </p>
-                <p class="text-lg leading-relaxed opacity-90">
-                    Setiap porsi brownies dan pudding kami dibuat secara <em>homemade</em> dengan bahan-bahan pilihan berkualitas tinggi, memastikan tekstur dan rasa yang sempurna di setiap gigitan.
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <section id="menu" class="py-24 px-8 bg-white min-h-[120vh]">
-        <div class="text-center mb-16">
-            <h2 class="font-serif text-4xl mb-2">Our Signature Menu</h2>
-            <div class="h-1 w-20 bg-primary-light mx-auto"></div>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
-            <div onclick="openModal('ChocBan Granola', 'Perpaduan cokelat premium, pisang pilihan, dan taburan granola renyah yang sehat dan lezat.', 'Rp 45.000', 'https://images.unsplash.com/photo-1504113076680-3c5bc29d83eb?auto=format&fit=crop&q=80&w=600')" 
-                 class="group bg-accent-cream/30 rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition duration-500 cursor-pointer transform hover:-translate-y-2">
-                <div class="h-56 overflow-hidden">
-                    <img src="https://images.unsplash.com/photo-1504113076680-3c5bc29d83eb?auto=format&fit=crop&q=80&w=600" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
-                </div>
-                <div class="p-6 text-center">
-                    <h3 class="font-serif text-xl mb-2">ChocBan Granola</h3>
-                    <p class="text-primary-light font-bold">Rp 45.000</p>
+    <!-- About -->
+    <section id="about" class="py-24 px-6 bg-gradient-to-b from-cream to-white">
+        <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-16 items-center">
+            <div class="reveal">
+                <div class="relative group">
+                    <div class="absolute -inset-6 border-2 border-tan/30 rounded-3xl group-hover:-inset-8 transition-all"></div>
+                    <div class="relative overflow-hidden rounded-2xl shadow-2xl">
+                        <img src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&q=80&w=800" class="w-full img-zoom" alt="Ulvoria">
+                    </div>
                 </div>
             </div>
-
-            <div onclick="openModal('Tiramisu Cake', 'Kue klasik Italia dengan aroma kopi yang kuat, lapisan mascarpone lembut, dan taburan cokelat bubuk.', 'Rp 120.000', 'https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?auto=format&fit=crop&q=80&w=600')" 
-                 class="group bg-accent-cream/30 rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition duration-500 cursor-pointer transform hover:-translate-y-2">
-                <div class="h-56 overflow-hidden">
-                    <img src="https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?auto=format&fit=crop&q=80&w=600" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
-                </div>
-                <div class="p-6 text-center">
-                    <h3 class="font-serif text-xl mb-2">Tiramisu Cake</h3>
-                    <p class="text-primary-light font-bold">Rp 120.000</p>
-                </div>
-            </div>
-
-            <div onclick="openModal('Banana Pudding', 'Pudding pisang yang creamy dengan tekstur lembut dan potongan biskuit di dalamnya.', 'Rp 35.000', 'https://images.unsplash.com/photo-1563220199-9831c7784f1b?auto=format&fit=crop&q=80&w=600')" 
-                 class="group bg-accent-cream/30 rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition duration-500 cursor-pointer transform hover:-translate-y-2">
-                <div class="h-56 overflow-hidden">
-                    <img src="https://images.unsplash.com/photo-1563220199-9831c7784f1b?auto=format&fit=crop&q=80&w=600" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
-                </div>
-                <div class="p-6 text-center">
-                    <h3 class="font-serif text-xl mb-2">Banana Pudding</h3>
-                    <p class="text-primary-light font-bold">Rp 35.000</p>
-                </div>
-            </div>
-
-            <div onclick="openModal('Fudgy Brownies', 'Brownies andalan Ulvoria dengan tekstur yang sangat fudgy dan cokelat yang melimpah.', 'Rp 85.000', 'https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&q=80&w=600')" 
-                 class="group bg-accent-cream/30 rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition duration-500 cursor-pointer transform hover:-translate-y-2">
-                <div class="h-56 overflow-hidden">
-                    <img src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&q=80&w=600" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
-                </div>
-                <div class="p-6 text-center">
-                    <h3 class="font-serif text-xl mb-2">Fudgy Brownies</h3>
-                    <p class="text-primary-light font-bold">Rp 85.000</p>
+            <div class="reveal">
+                <span class="inline-block bg-tan/20 px-6 py-2 rounded-full text-sm font-semibold mb-6">TENTANG KAMI</span>
+                <h2 class="font-serif text-5xl mb-6">Membawa <span class="text-secondary">Euphoria</span> Di Setiap Gigitan</h2>
+                <p class="text-lg text-primary/80 mb-6">Terinspirasi dari kebahagiaan kecil yang lahir dari kue buatan rumah, Ulvoria Patisserie menghadirkan berbagai baked goods yang lembut, kaya rasa, dan dibuat dengan sepenuh hati.</p>
+                <div class="grid md:grid-cols-2 gap-4">
+                    <div class="flex gap-3"><i class="fas fa-check-circle text-tan mt-1"></i><div><div class="font-semibold">Bahan Premium</div><div class="text-sm text-primary/60">Kualitas terbaik</div></div></div>
+                    <div class="flex gap-3"><i class="fas fa-check-circle text-tan mt-1"></i><div><div class="font-semibold">Fresh Daily</div><div class="text-sm text-primary/60">Dibuat fresh</div></div></div>
+                    <div class="flex gap-3"><i class="fas fa-check-circle text-tan mt-1"></i><div><div class="font-semibold">Resep Teruji</div><div class="text-sm text-primary/60">Formula sempurna</div></div></div>
+                    <div class="flex gap-3"><i class="fas fa-check-circle text-tan mt-1"></i><div><div class="font-semibold">Pengiriman Aman</div><div class="text-sm text-primary/60">Packaging premium</div></div></div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="faq" class="py-20 bg-primary-dark text-accent-cream px-8">
+    <!-- Menu -->
+    <section id="menu" class="py-24 px-6 bg-white">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16 reveal">
+                <span class="inline-block bg-tan/20 px-6 py-2 rounded-full text-sm font-semibold mb-4">SIGNATURE COLLECTION</span>
+                <h2 class="font-serif text-5xl mb-6">Menu Pilihan Kami</h2>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div onclick="openModal('ChocoBan Granola', 'Banana bread moist dengan toping granola melimpah yang crunchy. Kombinasi sempurna pisang dan cokelat premium.', 'Rp 80.000', 'https://images.unsplash.com/photo-1504113076680-3c5bc29d83eb?auto=format&fit=crop&q=80&w=800')" class="group bg-cream/30 rounded-3xl overflow-hidden cursor-pointer hover:-translate-y-2 transition-all shadow-lg reveal">
+                    <div class="relative overflow-hidden h-72">
+                        <img src="https://images.unsplash.com/photo-1504113076680-3c5bc29d83eb?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover img-zoom">
+                        <div class="absolute inset-0 bg-primary/90 flex items-center justify-center opacity-0 group-hover:opacity-100 transition"><i class="fas fa-eye text-4xl text-white"></i></div>
+                        <span class="absolute top-4 right-4 bg-tan text-primary px-4 py-2 rounded-full text-xs font-bold">BESTSELLER</span>
+                    </div>
+                    <div class="p-6"><h3 class="font-serif text-2xl mb-2">ChocoBan Granola</h3><p class="text-sm text-primary/60 mb-4">Banana bread dengan granola</p><div class="bg-primary text-white px-5 py-2 rounded-full inline-block font-bold">80k</div></div>
+                </div>
+                <div onclick="openModal('Fudgy Brownies', 'Brownies fudgy lembut dengan crackly top. Tersedia varian Original dan Almond yang crunchy.', '95k - 110k', 'https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&q=80&w=800')" class="group bg-cream/30 rounded-3xl overflow-hidden cursor-pointer hover:-translate-y-2 transition-all shadow-lg reveal">
+                    <div class="relative overflow-hidden h-72">
+                        <img src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover img-zoom">
+                        <div class="absolute inset-0 bg-primary/90 flex items-center justify-center opacity-0 group-hover:opacity-100 transition"><i class="fas fa-eye text-4xl text-white"></i></div>
+                        <span class="absolute top-4 right-4 bg-primary text-tan px-4 py-2 rounded-full text-xs font-bold">2 VARIAN</span>
+                    </div>
+                    <div class="p-6"><h3 class="font-serif text-2xl mb-2">Fudgy Brownies</h3><p class="text-sm text-primary/60 mb-4">Tekstur fudgy sempurna</p><div class="bg-primary text-white px-5 py-2 rounded-full inline-block font-bold">95k - 110k</div></div>
+                </div>
+                <div onclick="openModal('Burnt Cheese Brownie', 'Perpaduan brownies fudgy dan cheesecake creamy dengan burnt cheese signature yang unik.', 'Rp 180.000', 'https://images.unsplash.com/photo-1533134242443-d4fd215305ad?auto=format&fit=crop&q=80&w=800')" class="group bg-cream/30 rounded-3xl overflow-hidden cursor-pointer hover:-translate-y-2 transition-all shadow-lg reveal">
+                    <div class="relative overflow-hidden h-72">
+                        <img src="https://images.unsplash.com/photo-1533134242443-d4fd215305ad?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover img-zoom">
+                        <div class="absolute inset-0 bg-primary/90 flex items-center justify-center opacity-0 group-hover:opacity-100 transition"><i class="fas fa-eye text-4xl text-white"></i></div>
+                        <span class="absolute top-4 right-4 bg-tan text-primary px-4 py-2 rounded-full text-xs font-bold">PREMIUM</span>
+                    </div>
+                    <div class="p-6"><h3 class="font-serif text-2xl mb-2">Burnt Cheese Brownie</h3><p class="text-sm text-primary/60 mb-4">Brownies meets cheesecake</p><div class="bg-primary text-white px-5 py-2 rounded-full inline-block font-bold">180k</div></div>
+                </div>
+            </div>
+            <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto mt-8">
+                <div onclick="openModal('Classic Tiramisu', 'Tiramisu klasik dengan mascarpone creamy dan espresso khas. Perfect balance!', 'Rp 35.000', 'https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?auto=format&fit=crop&q=80&w=800')" class="group bg-cream/30 rounded-3xl overflow-hidden cursor-pointer hover:-translate-y-2 transition-all shadow-lg reveal">
+                    <div class="relative overflow-hidden h-72">
+                        <img src="https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover img-zoom">
+                        <div class="absolute inset-0 bg-primary/90 flex items-center justify-center opacity-0 group-hover:opacity-100 transition"><i class="fas fa-eye text-4xl text-white"></i></div>
+                        <span class="absolute top-4 right-4 bg-primary text-tan px-4 py-2 rounded-full text-xs font-bold">COFFEE LOVER</span>
+                    </div>
+                    <div class="p-6"><h3 class="font-serif text-2xl mb-2">Classic Tiramisu</h3><p class="text-sm text-primary/60 mb-4">Mascarpone & espresso</p><div class="bg-primary text-white px-5 py-2 rounded-full inline-block font-bold">35k</div></div>
+                </div>
+                <div onclick="openModal('Banana Pudding', 'Banana fresh, pudding vanilla halus, biskuit lembut dan saus caramel. Comfort dessert!', 'Rp 25.000', 'https://images.unsplash.com/photo-1563220199-9831c7784f1b?auto=format&fit=crop&q=80&w=800')" class="group bg-cream/30 rounded-3xl overflow-hidden cursor-pointer hover:-translate-y-2 transition-all shadow-lg reveal">
+                    <div class="relative overflow-hidden h-72">
+                        <img src="https://images.unsplash.com/photo-1563220199-9831c7784f1b?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover img-zoom">
+                        <div class="absolute inset-0 bg-primary/90 flex items-center justify-center opacity-0 group-hover:opacity-100 transition"><i class="fas fa-eye text-4xl text-white"></i></div>
+                        <span class="absolute top-4 right-4 bg-tan text-primary px-4 py-2 rounded-full text-xs font-bold">COMFORT FOOD</span>
+                    </div>
+                    <div class="p-6"><h3 class="font-serif text-2xl mb-2">Banana Pudding</h3><p class="text-sm text-primary/60 mb-4">Banana & vanilla blend</p><div class="bg-primary text-white px-5 py-2 rounded-full inline-block font-bold">25k</div></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- FAQ -->
+    <section id="faq" class="py-24 bg-white px-6">
         <div class="max-w-4xl mx-auto">
-            <h2 class="font-serif text-4xl text-center mb-12">FAQ</h2>
+            <div class="text-center mb-16 reveal">
+                <span class="inline-block bg-tan/20 px-6 py-2 rounded-full text-sm font-semibold mb-4">FAQ</span>
+                <h2 class="font-serif text-5xl mb-6">Pertanyaan Umum</h2>
+            </div>
             <div class="space-y-4">
-                <details class="group bg-primary-light/50 p-6 rounded-xl cursor-pointer">
-                    <summary class="font-semibold flex justify-between items-center list-none">
-                        Bagaimana cara pemesanannya?
-                        <span class="group-open:rotate-180 transition-transform">↓</span>
-                    </summary>
-                    <p class="mt-4 text-accent-cream/80 text-sm">Klik pada produk yang kamu suka, lalu klik tombol "Order Now" untuk langsung diarahkan ke WhatsApp kami.</p>
-                </details>
-                <details class="group bg-primary-light/50 p-6 rounded-xl cursor-pointer">
-                    <summary class="font-semibold flex justify-between items-center list-none">
-                        Apakah ready stock setiap hari?
-                        <span class="group-open:rotate-180 transition-transform">↓</span>
-                    </summary>
-                    <p class="mt-4 text-accent-cream/80 text-sm">Beberapa produk kami bersifat Pre-Order (PO) untuk menjaga kualitas tetap segar. Silakan hubungi WA untuk konfirmasi stok harian.</p>
-                </details>
+                <div class="border border-primary/10 rounded-2xl overflow-hidden reveal">
+                    <button class="w-full flex justify-between items-center p-6 text-left hover:bg-cream/30 transition" onclick="toggleFaq(this)">
+                        <span class="text-lg font-semibold pr-4">Bagaimana cara memesan?</span>
+                        <i class="fas fa-plus text-primary transition-transform"></i>
+                    </button>
+                    <div class="max-h-0 overflow-hidden transition-all">
+                        <div class="p-6 pt-0 text-primary/70">Pemesanan dapat dilakukan via WhatsApp. Klik tombol "Order Now" pada produk untuk mengirim format pesanan otomatis, atau chat langsung ke nomor kami.</div>
+                    </div>
+                </div>
+                <div class="border border-primary/10 rounded-2xl overflow-hidden reveal">
+                    <button class="w-full flex justify-between items-center p-6 text-left hover:bg-cream/30 transition" onclick="toggleFaq(this)">
+                        <span class="text-lg font-semibold pr-4">Apakah ada layanan pengiriman?</span>
+                        <i class="fas fa-plus text-primary transition-transform"></i>
+                    </button>
+                    <div class="max-h-0 overflow-hidden transition-all">
+                        <div class="p-6 pt-0 text-primary/70">Ya! Kami melayani delivery area Banda Aceh menggunakan kurir lokal, atau bisa self-pickup di Peunyeurat. Biaya pengiriman disesuaikan dengan jarak.</div>
+                    </div>
+                </div>
+                <div class="border border-primary/10 rounded-2xl overflow-hidden reveal">
+                    <button class="w-full flex justify-between items-center p-6 text-left hover:bg-cream/30 transition" onclick="toggleFaq(this)">
+                        <span class="text-lg font-semibold pr-4">Berapa lama pre-order?</span>
+                        <i class="fas fa-plus text-primary transition-transform"></i>
+                    </button>
+                    <div class="max-h-0 overflow-hidden transition-all">
+                        <div class="p-6 pt-0 text-primary/70">Minimal H-1 untuk pesanan reguler. Untuk pesanan dalam jumlah besar, minimal 2-3 hari sebelumnya. Stok ready bisa ditanyakan via WhatsApp.</div>
+                    </div>
+                </div>
+                <div class="border border-primary/10 rounded-2xl overflow-hidden reveal">
+                    <button class="w-full flex justify-between items-center p-6 text-left hover:bg-cream/30 transition" onclick="toggleFaq(this)">
+                        <span class="text-lg font-semibold pr-4">Bagaimana cara penyimpanan?</span>
+                        <i class="fas fa-plus text-primary transition-transform"></i>
+                    </button>
+                    <div class="max-h-0 overflow-hidden transition-all">
+                        <div class="p-6 pt-0 text-primary/70">Brownies & banana bread: suhu ruang 3-4 hari. Tiramisu & pudding: kulkas 3-5 hari. Simpan dalam wadah tertutup rapat untuk menjaga kesegaran.</div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <footer id="contact" class="bg-primary-dark text-accent-cream pt-20 pb-10 px-8 border-t border-accent-tan/20">
-        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 mb-16">
-            <div>
-                <h3 class="font-serif text-3xl mb-6">Our Location</h3>
-                <div class="rounded-2xl overflow-hidden shadow-2xl h-80">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15884.288220979391!2d95.3117466!3d5.5312384!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30403714b7e80a79%3A0xc0953a8080c35467!2sPeunyeurat%2C%20Kec.%20Banda%20Raya%2C%20Kota%20Banda%20Aceh%2C%20Aceh!5e0!3m2!1sid!2sid!4v1710000000000!5m2!1sid!2sid" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    <!-- Footer -->
+    <footer id="contact" class="bg-primary text-cream py-24 px-6">
+        <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-16">
+            <div class="reveal">
+                <h3 class="font-serif text-3xl mb-6"><i class="fas fa-map-marker-alt text-tan"></i> Kunjungi Kami</h3>
+                <div class="rounded-3xl overflow-hidden h-80 border-4 border-tan/20">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3971.287!2d95.123!3d5.567!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNcKwMzQnMDEuMiJOIDk1wrAwNyczMy4xIkU!5e0!3m2!1sen!2sid!4v1234567890" width="100%" height="100%" style="border:0;" allowfullscreen loading="lazy"></iframe>
                 </div>
             </div>
-            <div class="flex flex-col justify-center">
-                <h3 class="font-serif text-4xl mb-4 text-accent-tan italic">Ulvoria Patisserie</h3>
-                <p class="mb-2 text-lg font-semibold italic opacity-90">Peunyeurat, Kota Banda Aceh, Aceh</p>
-                <p class="mb-6">WhatsApp: <span class="font-bold">085321561342</span></p>
-                
-                <h4 class="font-serif text-xl mb-4 text-accent-tan">Follow Us</h4>
-                <div class="flex space-x-6">
-                    <a href="https://www.instagram.com/ulvoria.patisserie?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" class="text-3xl hover:text-accent-tan transition transform hover:scale-110">
-                        <i class="fa-brands fa-instagram"></i>
+            <div class="flex flex-col justify-center reveal">
+                <div class="mb-8">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="w-12 h-12 bg-tan rounded-full flex items-center justify-center">
+                            <i class="fas fa-cookie-bite text-primary text-xl"></i>
+                        </div>
+                        <h3 class="font-serif text-4xl text-tan">Ulvoria</h3>
+                    </div>
+                    <p class="text-xl mb-2">Premium Patisserie</p>
+                    <p class="text-lg opacity-70 mb-6"><i class="fas fa-map-pin text-tan"></i> Peunyeurat, Banda Aceh</p>
+                    <a href="https://wa.me/6281314032160" class="flex items-center gap-3 text-cream hover:text-tan transition group">
+                        <div class="w-12 h-12 bg-tan/20 rounded-full flex items-center justify-center group-hover:bg-tan/30 transition">
+                            <i class="fab fa-whatsapp text-2xl"></i>
+                        </div>
+                        <div><div class="text-sm opacity-60">WhatsApp</div><div class="text-xl font-semibold">0813-1403-2160</div></div>
                     </a>
-                    <a href="https://www.tiktok.com/@ulvoria.patisserie?is_from_webapp=1&sender_device=pc" target="_blank" class="text-3xl hover:text-accent-tan transition transform hover:scale-110">
-                        <i class="fa-brands fa-tiktok"></i>
-                    </a>
+                </div>
+                <div class="border-t border-tan/20 pt-8">
+                    <h4 class="font-serif text-2xl mb-6 text-tan"><i class="fas fa-heart"></i> Follow Us</h4>
+                    <div class="flex gap-4">
+                        <a href="https://www.instagram.com/ulvoria.patisserie" class="w-14 h-14 bg-tan/20 rounded-full flex items-center justify-center hover:bg-tan hover:text-primary transition"><i class="fab fa-instagram text-2xl"></i></a>
+                        <a href="https://www.tiktok.com/@ulvoria.patisserie" class="w-14 h-14 bg-tan/20 rounded-full flex items-center justify-center hover:bg-tan hover:text-primary transition"><i class="fab fa-tiktok text-2xl"></i></a>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="text-center text-xs opacity-50 border-t border-accent-cream/10 pt-8">
-            © 2026 Ulvoria Patisserie. Crafted by Andrian Fakhruza.
-        </div>
+        <div class="border-t border-tan/20 mt-16 pt-8 text-center text-sm opacity-60">© 2024 Ulvoria Patisserie. Made with <i class="fas fa-heart text-tan"></i></div>
     </footer>
 
-    <div id="productModal" class="fixed inset-0 z-[100] hidden flex items-center justify-center p-4">
-        <div class="absolute inset-0 bg-black/70 backdrop-blur-sm" onclick="closeModal()"></div>
-        <div class="bg-accent-cream max-w-2xl w-full rounded-3xl overflow-hidden relative z-10 flex flex-col md:flex-row shadow-2xl">
-            <button onclick="closeModal()" class="absolute top-4 right-4 text-primary-dark text-2xl font-bold z-20">✕</button>
-            <div class="md:w-1/2 h-64 md:h-auto">
-                <img id="modalImg" src="" class="w-full h-full object-cover">
-            </div>
-            <div class="md:w-1/2 p-8">
-                <h3 id="modalTitle" class="font-serif text-3xl mb-4"></h3>
-                <p id="modalDesc" class="text-primary-dark/80 mb-6 leading-relaxed italic"></p>
-                <p class="text-sm font-semibold text-primary-dark/60 mb-2 uppercase tracking-widest">Harga:</p>
-                <div class="flex justify-between items-center mt-auto">
-                    <span id="modalPrice" class="text-2xl font-bold text-primary-light"></span>
-                    <a id="waLink" href="#" target="_blank" class="bg-primary-dark text-white px-6 py-2 rounded-full text-sm font-semibold hover:bg-primary-light transition shadow-lg">Order Now</a>
+    <!-- Modal -->
+    <div id="modal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-primary/90 backdrop-blur-xl">
+        <div class="bg-white max-w-4xl w-full rounded-3xl overflow-hidden transform scale-95 opacity-0 transition-all" id="modalContent">
+            <button onclick="closeModal()" class="absolute top-6 right-6 z-10 w-10 h-10 bg-primary text-white rounded-full flex items-center justify-center hover:bg-secondary transition"><i class="fas fa-times"></i></button>
+            <div class="flex flex-col md:flex-row">
+                <div class="md:w-1/2 h-64 md:h-auto"><img id="modalImg" src="" class="w-full h-full object-cover"></div>
+                <div class="md:w-1/2 p-8 md:p-12">
+                    <h3 id="modalTitle" class="font-serif text-3xl mb-4 text-primary"></h3>
+                    <p id="modalDesc" class="text-primary/70 mb-6 leading-relaxed"></p>
+                    <div class="mb-6 space-y-2">
+                        <div class="flex items-center gap-2 text-sm text-primary/60"><i class="fas fa-check-circle text-tan"></i><span>Bahan premium</span></div>
+                        <div class="flex items-center gap-2 text-sm text-primary/60"><i class="fas fa-check-circle text-tan"></i><span>Fresh daily</span></div>
+                        <div class="flex items-center gap-2 text-sm text-primary/60"><i class="fas fa-check-circle text-tan"></i><span>Packaging aman</span></div>
+                    </div>
+                    <div class="border-t border-primary/10 pt-6">
+                        <div class="flex justify-between items-center mb-6">
+                            <div><p class="text-xs uppercase text-primary/50 font-semibold mb-1">Harga</p><span id="modalPrice" class="text-3xl font-bold text-primary"></span></div>
+                        </div>
+                        <a id="waLink" href="#" class="w-full bg-gradient-to-r from-primary to-secondary text-white px-8 py-4 rounded-full font-bold flex items-center justify-center gap-3 hover:shadow-2xl transition"><i class="fab fa-whatsapp text-xl"></i><span>Order via WhatsApp</span></a>
+                        <p class="text-center text-xs text-primary/50 mt-4"><i class="fas fa-clock"></i> Pre-order minimal H-1</p>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <script>
-        function openModal(title, desc, price, img) {
-            document.getElementById('modalTitle').innerText = title;
-            document.getElementById('modalDesc').innerText = desc;
-            document.getElementById('modalPrice').innerText = price;
-            document.getElementById('modalImg').src = img;
-            
-            // Link WA otomatis dengan pesan template
-            const message = `Halo Ulvoria! Saya ingin memesan ${title}.`;
-            document.getElementById('waLink').href = `https://wa.me/0813140321602?text=${encodeURIComponent(message)}`;
-            
-            document.getElementById('productModal').classList.remove('hidden');
-            document.body.style.overflow = 'hidden';
-        }
+    <!-- Back to Top -->
+    <button id="backTop" class="fixed bottom-8 right-8 w-12 h-12 bg-tan text-primary rounded-full shadow-lg opacity-0 pointer-events-none transition-all z-40 hover:bg-primary hover:text-white" onclick="window.scrollTo({top:0,behavior:'smooth'})"><i class="fas fa-arrow-up"></i></button>
 
-        function closeModal() {
-            document.getElementById('productModal').classList.add('hidden');
-            document.body.style.overflow = 'auto';
-        }
+    <script>
+        function toggleMenu(){document.getElementById('mobileMenu').classList.toggle('translate-x-full')}
+        function toggleFaq(b){const c=b.nextElementSibling,i=b.querySelector('i');document.querySelectorAll('#faq button').forEach(o=>{if(o!==b){o.nextElementSibling.style.maxHeight='0px';o.querySelector('i').style.transform='rotate(0deg)'}});c.style.maxHeight=c.style.maxHeight&&c.style.maxHeight!=='0px'?'0px':c.scrollHeight+'px';i.style.transform=c.style.maxHeight!=='0px'?'rotate(45deg)':'rotate(0deg)'}
+        function openModal(t,d,p,i){document.getElementById('modalTitle').innerText=t;document.getElementById('modalDesc').innerText=d;document.getElementById('modalPrice').innerText=p;document.getElementById('modalImg').src=i;document.getElementById('waLink').href=`https://wa.me/6281314032160?text=${encodeURIComponent(`Halo Ulvoria! 🍰\n\nSaya ingin memesan:\n📦 *${t}*\n💰 ${p}\n\nBoleh info stok? Terima kasih! 😊`)}`;const m=document.getElementById('modal'),c=document.getElementById('modalContent');m.classList.remove('hidden');document.body.style.overflow='hidden';setTimeout(()=>{c.classList.remove('scale-95','opacity-0');c.classList.add('scale-100','opacity-100')},10)}
+        function closeModal(){const m=document.getElementById('modal'),c=document.getElementById('modalContent');c.classList.remove('scale-100','opacity-100');c.classList.add('scale-95','opacity-0');setTimeout(()=>{m.classList.add('hidden');document.body.style.overflow='auto'},300)}
+        window.addEventListener('scroll',()=>{const n=document.getElementById('nav'),b=document.getElementById('backTop');n.style.boxShadow=window.scrollY>100?'0 10px 30px rgba(0,0,0,.3)':'none';if(window.scrollY>500){b.style.opacity='1';b.style.pointerEvents='auto'}else{b.style.opacity='0';b.style.pointerEvents='none'}});
+        const o=new IntersectionObserver(e=>{e.forEach(i=>{if(i.isIntersecting)i.target.classList.add('active')})},{threshold:.1});
+        document.querySelectorAll('.reveal').forEach(r=>o.observe(r));
+        document.getElementById('modal').addEventListener('click',e=>{if(e.target.id==='modal')closeModal()});
+        document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal()});
+        document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',e=>{e.preventDefault();const t=document.querySelector(a.getAttribute('href'));if(t){t.scrollIntoView({behavior:'smooth'});if(document.getElementById('mobileMenu').classList.contains('translate-x-full')===false)toggleMenu()}})});
     </script>
 </body>
 </html>
