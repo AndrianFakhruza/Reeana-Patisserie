@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ulvoria Patisserie | Premium Treats</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary-dark': '#561C24',
+                        'primary-light': '#6D2932',
+                        'accent-tan': '#C7B7A3',
+                        'accent-cream': '#E8D8C4',
+                    },
+                    fontFamily: {
+                        'serif': ['Playfair Display', 'serif'],
+                        'sans': ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .hero-bg {
+            /* Menggunakan gambar brownies yang estetik */
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1606312619070-d48b4c652a52?auto=format&fit=crop&q=80&w=1920');
+            background-size: cover;
+            background-position: center;
+        }
+    </style>
+</head>
+<body class="bg-accent-cream font-sans text-primary-dark">
+
+    <nav class="fixed w-full z-50 bg-primary-dark/95 backdrop-blur-md text-accent-cream px-8 py-4 flex justify-between items-center shadow-lg">
+        <div class="text-2xl font-serif font-bold tracking-wider italic">ULVORIA</div>
+        <div class="hidden md:flex space-x-8 font-medium">
+            <a href="#" class="hover:text-accent-tan transition">Home</a>
+            <a href="#about" class="hover:text-accent-tan transition">About</a>
+            <a href="#menu" class="hover:text-accent-tan transition">Menu</a>
+            <a href="#faq" class="hover:text-accent-tan transition">FAQ</a>
+            <a href="#contact" class="hover:text-accent-tan transition">Contact</a>
+        </div>
+    </nav>
+
+    <header id="home" class="h-screen hero-bg flex items-center justify-center text-center text-white px-4">
+        <div class="max-w-3xl">
+            <h1 class="font-serif text-5xl md:text-7xl mb-4 drop-shadow-2xl">Ulvoria Patisserie</h1>
+            <p class="text-lg md:text-xl font-light italic tracking-wide opacity-90">"Sweetness in every bite, crafted with passion."</p>
+            <a href="#menu" class="mt-8 inline-block bg-accent-tan hover:bg-primary-light text-primary-dark hover:text-white px-8 py-3 rounded-full transition-all duration-300 font-semibold uppercase tracking-widest text-sm shadow-xl">Lihat Menu</a>
+        </div>
+    </header>
+
+    <section id="about" class="py-24 px-8 bg-accent-cream">
+        <div class="max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-12">
+            <div class="md:w-1/2">
+                <img src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&q=80&w=800" alt="Kitchen" class="rounded-2xl shadow-2xl">
+            </div>
+            <div class="md:w-1/2">
+                <h2 class="font-serif text-4xl mb-6">About Our Patisserie</h2>
+                <p class="text-lg leading-relaxed mb-6 opacity-90">
+                    Bermula dari kecintaan kami terhadap hidangan penutup yang otentik, <strong>Ulvoria Patisserie</strong> hadir untuk memberikan pengalaman rasa yang premium bagi para pecinta manis.
+                </p>
+                <p class="text-lg leading-relaxed opacity-90">
+                    Setiap porsi brownies dan pudding kami dibuat secara <em>homemade</em> dengan bahan-bahan pilihan berkualitas tinggi, memastikan tekstur dan rasa yang sempurna di setiap gigitan.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="menu" class="py-24 px-8 bg-white min-h-[120vh]">
+        <div class="text-center mb-16">
+            <h2 class="font-serif text-4xl mb-2">Our Signature Menu</h2>
+            <div class="h-1 w-20 bg-primary-light mx-auto"></div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
+            <div onclick="openModal('ChocBan Granola', 'Perpaduan cokelat premium, pisang pilihan, dan taburan granola renyah yang sehat dan lezat.', 'Rp 45.000', 'https://images.unsplash.com/photo-1504113076680-3c5bc29d83eb?auto=format&fit=crop&q=80&w=600')" 
+                 class="group bg-accent-cream/30 rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition duration-500 cursor-pointer transform hover:-translate-y-2">
+                <div class="h-56 overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1504113076680-3c5bc29d83eb?auto=format&fit=crop&q=80&w=600" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                </div>
+                <div class="p-6 text-center">
+                    <h3 class="font-serif text-xl mb-2">ChocBan Granola</h3>
+                    <p class="text-primary-light font-bold">Rp 45.000</p>
+                </div>
+            </div>
+
+            <div onclick="openModal('Tiramisu Cake', 'Kue klasik Italia dengan aroma kopi yang kuat, lapisan mascarpone lembut, dan taburan cokelat bubuk.', 'Rp 120.000', 'https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?auto=format&fit=crop&q=80&w=600')" 
+                 class="group bg-accent-cream/30 rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition duration-500 cursor-pointer transform hover:-translate-y-2">
+                <div class="h-56 overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?auto=format&fit=crop&q=80&w=600" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                </div>
+                <div class="p-6 text-center">
+                    <h3 class="font-serif text-xl mb-2">Tiramisu Cake</h3>
+                    <p class="text-primary-light font-bold">Rp 120.000</p>
+                </div>
+            </div>
+
+            <div onclick="openModal('Banana Pudding', 'Pudding pisang yang creamy dengan tekstur lembut dan potongan biskuit di dalamnya.', 'Rp 35.000', 'https://images.unsplash.com/photo-1563220199-9831c7784f1b?auto=format&fit=crop&q=80&w=600')" 
+                 class="group bg-accent-cream/30 rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition duration-500 cursor-pointer transform hover:-translate-y-2">
+                <div class="h-56 overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1563220199-9831c7784f1b?auto=format&fit=crop&q=80&w=600" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                </div>
+                <div class="p-6 text-center">
+                    <h3 class="font-serif text-xl mb-2">Banana Pudding</h3>
+                    <p class="text-primary-light font-bold">Rp 35.000</p>
+                </div>
+            </div>
+
+            <div onclick="openModal('Fudgy Brownies', 'Brownies andalan Ulvoria dengan tekstur yang sangat fudgy dan cokelat yang melimpah.', 'Rp 85.000', 'https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&q=80&w=600')" 
+                 class="group bg-accent-cream/30 rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition duration-500 cursor-pointer transform hover:-translate-y-2">
+                <div class="h-56 overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&q=80&w=600" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                </div>
+                <div class="p-6 text-center">
+                    <h3 class="font-serif text-xl mb-2">Fudgy Brownies</h3>
+                    <p class="text-primary-light font-bold">Rp 85.000</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="faq" class="py-20 bg-primary-dark text-accent-cream px-8">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="font-serif text-4xl text-center mb-12">FAQ</h2>
+            <div class="space-y-4">
+                <details class="group bg-primary-light/50 p-6 rounded-xl cursor-pointer">
+                    <summary class="font-semibold flex justify-between items-center list-none">
+                        Bagaimana cara pemesanannya?
+                        <span class="group-open:rotate-180 transition-transform">↓</span>
+                    </summary>
+                    <p class="mt-4 text-accent-cream/80 text-sm">Klik pada produk yang kamu suka, lalu klik tombol "Order Now" untuk langsung diarahkan ke WhatsApp kami.</p>
+                </details>
+                <details class="group bg-primary-light/50 p-6 rounded-xl cursor-pointer">
+                    <summary class="font-semibold flex justify-between items-center list-none">
+                        Apakah ready stock setiap hari?
+                        <span class="group-open:rotate-180 transition-transform">↓</span>
+                    </summary>
+                    <p class="mt-4 text-accent-cream/80 text-sm">Beberapa produk kami bersifat Pre-Order (PO) untuk menjaga kualitas tetap segar. Silakan hubungi WA untuk konfirmasi stok harian.</p>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact" class="bg-primary-dark text-accent-cream pt-20 pb-10 px-8 border-t border-accent-tan/20">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 mb-16">
+            <div>
+                <h3 class="font-serif text-3xl mb-6">Our Location</h3>
+                <div class="rounded-2xl overflow-hidden shadow-2xl h-80">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15884.288220979391!2d95.3117466!3d5.5312384!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30403714b7e80a79%3A0xc0953a8080c35467!2sPeunyeurat%2C%20Kec.%20Banda%20Raya%2C%20Kota%20Banda%20Aceh%2C%20Aceh!5e0!3m2!1sid!2sid!4v1710000000000!5m2!1sid!2sid" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+            <div class="flex flex-col justify-center">
+                <h3 class="font-serif text-4xl mb-4 text-accent-tan italic">Ulvoria Patisserie</h3>
+                <p class="mb-2 text-lg font-semibold italic opacity-90">Peunyeurat, Kota Banda Aceh, Aceh</p>
+                <p class="mb-6">WhatsApp: <span class="font-bold">085321561342</span></p>
+                
+                <h4 class="font-serif text-xl mb-4 text-accent-tan">Follow Us</h4>
+                <div class="flex space-x-6">
+                    <a href="https://www.instagram.com/ulvoria.patisserie?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" class="text-3xl hover:text-accent-tan transition transform hover:scale-110">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+                    <a href="https://www.tiktok.com/@ulvoria.patisserie?is_from_webapp=1&sender_device=pc" target="_blank" class="text-3xl hover:text-accent-tan transition transform hover:scale-110">
+                        <i class="fa-brands fa-tiktok"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="text-center text-xs opacity-50 border-t border-accent-cream/10 pt-8">
+            © 2026 Ulvoria Patisserie. Crafted by Andrian Fakhruza.
+        </div>
+    </footer>
+
+    <div id="productModal" class="fixed inset-0 z-[100] hidden flex items-center justify-center p-4">
+        <div class="absolute inset-0 bg-black/70 backdrop-blur-sm" onclick="closeModal()"></div>
+        <div class="bg-accent-cream max-w-2xl w-full rounded-3xl overflow-hidden relative z-10 flex flex-col md:flex-row shadow-2xl">
+            <button onclick="closeModal()" class="absolute top-4 right-4 text-primary-dark text-2xl font-bold z-20">✕</button>
+            <div class="md:w-1/2 h-64 md:h-auto">
+                <img id="modalImg" src="" class="w-full h-full object-cover">
+            </div>
+            <div class="md:w-1/2 p-8">
+                <h3 id="modalTitle" class="font-serif text-3xl mb-4"></h3>
+                <p id="modalDesc" class="text-primary-dark/80 mb-6 leading-relaxed italic"></p>
+                <p class="text-sm font-semibold text-primary-dark/60 mb-2 uppercase tracking-widest">Harga:</p>
+                <div class="flex justify-between items-center mt-auto">
+                    <span id="modalPrice" class="text-2xl font-bold text-primary-light"></span>
+                    <a id="waLink" href="#" target="_blank" class="bg-primary-dark text-white px-6 py-2 rounded-full text-sm font-semibold hover:bg-primary-light transition shadow-lg">Order Now</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openModal(title, desc, price, img) {
+            document.getElementById('modalTitle').innerText = title;
+            document.getElementById('modalDesc').innerText = desc;
+            document.getElementById('modalPrice').innerText = price;
+            document.getElementById('modalImg').src = img;
+            
+            // Link WA otomatis dengan pesan template
+            const message = `Halo Ulvoria! Saya ingin memesan ${title}.`;
+            document.getElementById('waLink').href = `https://wa.me/0813140321602?text=${encodeURIComponent(message)}`;
+            
+            document.getElementById('productModal').classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            document.getElementById('productModal').classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+    </script>
+</body>
+</html>
