@@ -26,7 +26,9 @@
         }
     </script>
     <style>
-        .hero-bg { background: linear-gradient(135deg, rgba(86,28,36,.85), rgba(109,41,50,.75)), url('https://images.unsplash.com/photo-1606312619070-d48b4c652a52?auto=format&fit=crop&q=80&w=1920') center/cover fixed; }
+        /* GANTI GAMBAR BACKGROUND HOME (HERO) DI BAWAH INI */
+        .hero-bg { background: linear-gradient(135deg, rgba(86,28,36,.85), rgba(109,41,50,.75)), url('assets/BananaPudding.jpeg') center/cover fixed; }
+        
         .reveal { opacity: 0; transform: translateY(30px); transition: all .8s; }
         .reveal.active { opacity: 1; transform: translateY(0); }
         .img-zoom { transition: transform .6s; }
@@ -41,8 +43,8 @@
     <nav id="nav" class="fixed w-full z-50 bg-primary/95 backdrop-blur-md text-cream px-6 py-4 transition-all">
         <div class="max-w-7xl mx-auto flex justify-between items-center">
             <div class="flex items-center gap-3">
-                <div class="w-10 h-10 bg-tan rounded-full flex items-center justify-center">
-                    <i class="fas fa-cookie-bite text-primary text-xl"></i>
+                <div class="w-10 h-10 bg-tan rounded-full flex items-center justify-center overflow-hidden">
+                    <img src="assets/LogoUlvoria.jpeg" alt="Logo" class="w-full h-full object-cover">
                 </div>
                 <span class="font-serif text-2xl font-bold">Ulvoria</span>
             </div>
@@ -86,7 +88,7 @@
                 <div class="relative group">
                     <div class="absolute -inset-6 border-2 border-tan/30 rounded-3xl group-hover:-inset-8 transition-all"></div>
                     <div class="relative overflow-hidden rounded-2xl shadow-2xl">
-                        <img src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&q=80&w=800" class="w-full img-zoom" alt="Ulvoria">
+                        <img src="assets/ChocBanGranola.jpeg" class="w-full img-zoom" alt="Ulvoria Kitchen">
                     </div>
                 </div>
             </div>
@@ -113,21 +115,23 @@
             <div class="grid md:grid-cols-3 gap-8">
                 <div onclick="openModal('ChocoBan Granola', 'Banana bread moist dengan toping granola melimpah yang crunchy. Kombinasi sempurna pisang dan cokelat premium.', 'Rp 80.000', 'https://images.unsplash.com/photo-1504113076680-3c5bc29d83eb?auto=format&fit=crop&q=80&w=800')" class="group bg-cream/30 rounded-3xl overflow-hidden cursor-pointer hover:-translate-y-2 transition-all shadow-lg reveal">
                     <div class="relative overflow-hidden h-72">
-                        <img src="https://images.unsplash.com/photo-1504113076680-3c5bc29d83eb?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover img-zoom">
+                        <img src="assets/ChocBanGranola.jpeg" class="w-full h-full object-cover img-zoom">
                         <div class="absolute inset-0 bg-primary/90 flex items-center justify-center opacity-0 group-hover:opacity-100 transition"><i class="fas fa-eye text-4xl text-white"></i></div>
                     </div>
                     <div class="p-6"><h3 class="font-serif text-2xl mb-2">ChocoBan Granola</h3><p class="text-sm text-primary/60 mb-4">Banana bread dengan granola</p><div class="bg-primary text-white px-5 py-2 rounded-full inline-block font-bold">80k</div></div>
                 </div>
+
                 <div onclick="openModal('Fudgy Brownies', 'Brownies fudgy lembut dengan crackly top. Tersedia varian Original dan Almond yang crunchy.', '95k - 110k', 'https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&q=80&w=800')" class="group bg-cream/30 rounded-3xl overflow-hidden cursor-pointer hover:-translate-y-2 transition-all shadow-lg reveal">
                     <div class="relative overflow-hidden h-72">
-                        <img src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover img-zoom">
+                        <img src="assets/FudgyBrownies.jpeg" class="w-full h-full object-cover img-zoom">
                         <div class="absolute inset-0 bg-primary/90 flex items-center justify-center opacity-0 group-hover:opacity-100 transition"><i class="fas fa-eye text-4xl text-white"></i></div>
                     </div>
                     <div class="p-6"><h3 class="font-serif text-2xl mb-2">Fudgy Brownies</h3><p class="text-sm text-primary/60 mb-4">Tekstur fudgy sempurna</p><div class="bg-primary text-white px-5 py-2 rounded-full inline-block font-bold">95k - 110k</div></div>
                 </div>
+
                 <div onclick="openModal('Burnt Cheese Brownie', 'Perpaduan brownies fudgy dan cheesecake creamy dengan burnt cheese signature yang unik.', 'Rp 180.000', 'https://images.unsplash.com/photo-1533134242443-d4fd215305ad?auto=format&fit=crop&q=80&w=800')" class="group bg-cream/30 rounded-3xl overflow-hidden cursor-pointer hover:-translate-y-2 transition-all shadow-lg reveal">
                     <div class="relative overflow-hidden h-72">
-                        <img src="https://images.unsplash.com/photo-1533134242443-d4fd215305ad?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover img-zoom">
+                        <img src="assets/BurntCheeseCake.jpeg" class="w-full h-full object-cover img-zoom">
                         <div class="absolute inset-0 bg-primary/90 flex items-center justify-center opacity-0 group-hover:opacity-100 transition"><i class="fas fa-eye text-4xl text-white"></i></div>
                     </div>
                     <div class="p-6"><h3 class="font-serif text-2xl mb-2">Burnt Cheese Brownie</h3><p class="text-sm text-primary/60 mb-4">Brownies meets cheesecake</p><div class="bg-primary text-white px-5 py-2 rounded-full inline-block font-bold">180k</div></div>
@@ -136,14 +140,15 @@
             <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto mt-8">
                 <div onclick="openModal('Classic Tiramisu', 'Tiramisu klasik dengan mascarpone creamy dan espresso khas. Perfect balance!', 'Rp 35.000', 'https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?auto=format&fit=crop&q=80&w=800')" class="group bg-cream/30 rounded-3xl overflow-hidden cursor-pointer hover:-translate-y-2 transition-all shadow-lg reveal">
                     <div class="relative overflow-hidden h-72">
-                        <img src="https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover img-zoom">
+                        <img src="assets/TiramisuCake.jpeg" class="w-full h-full object-cover img-zoom">
                         <div class="absolute inset-0 bg-primary/90 flex items-center justify-center opacity-0 group-hover:opacity-100 transition"><i class="fas fa-eye text-4xl text-white"></i></div>
                     </div>
                     <div class="p-6"><h3 class="font-serif text-2xl mb-2">Classic Tiramisu</h3><p class="text-sm text-primary/60 mb-4">Mascarpone & espresso</p><div class="bg-primary text-white px-5 py-2 rounded-full inline-block font-bold">35k</div></div>
                 </div>
+
                 <div onclick="openModal('Banana Pudding', 'Banana fresh, pudding vanilla halus, biskuit lembut dan saus caramel. Comfort dessert!', 'Rp 25.000', 'https://images.unsplash.com/photo-1563220199-9831c7784f1b?auto=format&fit=crop&q=80&w=800')" class="group bg-cream/30 rounded-3xl overflow-hidden cursor-pointer hover:-translate-y-2 transition-all shadow-lg reveal">
                     <div class="relative overflow-hidden h-72">
-                        <img src="https://images.unsplash.com/photo-1563220199-9831c7784f1b?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover img-zoom">
+                        <img src="assets/BananaPudding.jpeg" class="w-full h-full object-cover img-zoom">
                         <div class="absolute inset-0 bg-primary/90 flex items-center justify-center opacity-0 group-hover:opacity-100 transition"><i class="fas fa-eye text-4xl text-white"></i></div>
                     </div>
                     <div class="p-6"><h3 class="font-serif text-2xl mb-2">Banana Pudding</h3><p class="text-sm text-primary/60 mb-4">Banana & vanilla blend</p><div class="bg-primary text-white px-5 py-2 rounded-full inline-block font-bold">25k</div></div>
@@ -204,7 +209,7 @@
             <div class="reveal">
                 <h3 class="font-serif text-3xl mb-6"><i class="fas fa-map-marker-alt text-tan"></i> Kunjungi Kami</h3>
                 <div class="rounded-3xl overflow-hidden h-80 border-4 border-tan/20">
-                    <iframe src="http://googleusercontent.com/maps.google.com/6" width="100%" height="100%" style="border:0;" allowfullscreen loading="lazy"></iframe>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3971.2652628315777!2d95.32516760982473!3d5.527608194429427!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zNcKwMzEnMzkuNCJOIDk1wrAxOSczOS45IkU!5e0!3m2!1sid!2sid!4v1770351323525!5m2!1sid!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
             </div>
             <div class="flex flex-col justify-center reveal">
