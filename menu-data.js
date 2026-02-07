@@ -104,9 +104,8 @@ function openModal(item) {
     const optionsHTML = item.options.map(opt => `• ${opt}`).join('<br>');
     document.getElementById('modalOptions').innerHTML = optionsHTML;
     
-    // WhatsApp link
-    const waText = `Halo Ulvoria! 🍰\n\nSaya ingin bertanya/pesan menu:\n📦 *${item.name}*\n\nBoleh info stok? Terima kasih! 😊`;
-    document.getElementById('waLink').href = `https://wa.me/6281314032160?text=${encodeURIComponent(waText)}`;
+    // Update link to order page
+    document.getElementById('waLink').href = 'order.html';
     
     const modal = document.getElementById('modal');
     const modalContent = document.getElementById('modalContent');
