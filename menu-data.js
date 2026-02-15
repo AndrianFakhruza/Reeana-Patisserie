@@ -19,7 +19,7 @@ const menuItems = [
         description: 'Tekstur fudgy sempurna',
         fullDescription: 'Brownies dengan tekstur fudgy yang lembut di dalam dan crackly top diluar.',
         price: '20k/25k',
-        image: 'assets/FudgyBrownies.jpeg',
+        image: 'assets/FudgyBrownies.png',
         options: [
             'PaperCup(Ori) : 20k',
             'PaperCup(Almond) : 25k'
@@ -31,7 +31,7 @@ const menuItems = [
         description: 'Brownies meets cheesecake',
         fullDescription: 'Perpaduan antara brownies coklat yang fudgy dan cheseecake yang creamy.',
         price: '20k/55k',
-        image: 'assets/BurntCheeseCake.jpeg',
+        image: 'assets/BurntCheeseCake.png',
         options: [
             '1-2 person : 55k',
             'Mini/Slice : 20k'
@@ -65,7 +65,7 @@ const menuItems = [
         description: 'Bolu kukus cokelat lembut dengan topping crunchy',
         fullDescription: 'Bolu kukus cokelat lembut dengan topping cokelat crunchy yang renyah dan lezat.',
         price: '12k',
-        image: 'assets/ChocoCrunchy.jpeg',
+        image: 'assets/ChocoCrunchy.png',
         options: [
             '1 Cup : 12k'
         ]
@@ -76,7 +76,7 @@ const menuItems = [
         description: 'Camilan buah segar dengan asam kiamboy',
         fullDescription: 'Camilan buah segar dengan rasa asam-manis dan sentuhan kiamboy yang khas.',
         price: '25k',
-        image: 'assets/AsinanKiamboy.jpeg',
+        image: 'assets/AsinanKiamboy.png',
         options: [
             '1 cup : 25k'
         ]
@@ -87,7 +87,7 @@ const menuItems = [
         description: 'Pasta dengan topping daging melimpah.',
         fullDescription: 'Pasta dengan saus gurih dan topping daging melimpah.',
         price: '15k',
-        image: 'assets/Spaghetti.jpeg',
+        image: 'assets/Spaghetti.png',
         options: [
             '1 Box : 15k'
         ]
@@ -98,7 +98,7 @@ const menuItems = [
         description: 'Roti lembut dengan topping daging',
         fullDescription: 'Roti lembut dengan topping daging pilihan yang berkualitas.',
         price: '10k/55k',
-        image: 'assets/Pizza.jpeg',
+        image: 'assets/Pizza.png',
         options: [
             'Personal : 10k',
             '1 Loyang sedang : 55k'

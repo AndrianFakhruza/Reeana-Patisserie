@@ -161,7 +161,7 @@ function sendToWhatsApp() {
     message += `\n_Mohon konfirmasi ketersediaan stok dan ongkir ya! Terima kasih_`;
     
     // Encode and send to WhatsApp
-    const waNumber = '6281314032160';
+    const waNumber = '6283135153353';
     const waURL = `https://wa.me/${waNumber}?text=${encodeURIComponent(message)}`;
     
     window.open(waURL, '_blank');

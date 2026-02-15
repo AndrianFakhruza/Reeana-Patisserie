@@ -6,7 +6,7 @@
     <title>Pesan Sekarang - Ulvoria Patisserie</title>
     
     <!-- Favicon -->
-    <link rel="icon" type="image/jpeg" href="assets/LogoUlvoriaBulat.png">
+    <link rel="icon" type="image/png" href="assets/LogoUlvoriaBulat.png">
     <link rel="apple-touch-icon" href="assets/LogoUlvoriaBulat.png">
     
     <!-- Tailwind CSS -->
@@ -27,8 +27,8 @@
             theme: {
                 extend: {
                     colors: {
-                        primary: '#561C24',
-                        secondary: '#6D2932',
+                        primary: '#6B2E43',
+                        secondary: '#884A5E',
                         tan: '#C7B7A3',
                         cream: '#E8D8C4',
                     },
@@ -63,8 +63,8 @@
         <div class="max-w-5xl mx-auto">
             <!-- Header -->
             <div class="text-center mb-10 md:mb-14">
-                <div class="inline-block bg-tan/20 px-6 py-2 rounded-full text-sm font-semibold mb-4">
-                    <i class="fas fa-receipt text-tan mr-2"></i>ORDER FORM
+                <div class="inline-block bg-primary/10 border border-primary/20 px-6 py-2 rounded-full text-sm font-semibold mb-4 text-primary">
+                    <i class="fas fa-receipt text-secondary mr-2"></i>ORDER FORM
                 </div>
                 <h1 class="font-serif text-4xl md:text-6xl mb-4 text-primary">Form Pemesanan</h1>
                 <p class="text-base md:text-lg text-primary/70 max-w-2xl mx-auto">Lengkapi form di bawah untuk memesan produk kami. Pesanan akan dikirim ke WhatsApp untuk konfirmasi.</p>
@@ -76,8 +76,8 @@
                 <!-- Informasi Pelanggan -->
                 <div class="mb-10">
                     <div class="flex items-center gap-3 mb-6">
-                        <div class="w-10 h-10 bg-tan/20 rounded-full flex items-center justify-center">
-                            <i class="fas fa-user text-tan"></i>
+                        <div class="w-10 h-10 bg-primary/10 border border-primary/20 rounded-full flex items-center justify-center">
+                            <i class="fas fa-user text-primary"></i>
                         </div>
                         <h2 class="font-serif text-2xl md:text-3xl text-primary">Informasi Pelanggan</h2>
                     </div>
@@ -101,12 +101,12 @@
                 <div class="mb-10">
                     <div class="flex justify-between items-center mb-6">
                         <div class="flex items-center gap-3">
-                            <div class="w-10 h-10 bg-tan/20 rounded-full flex items-center justify-center">
-                                <i class="fas fa-shopping-cart text-tan"></i>
+                            <div class="w-10 h-10 bg-primary/10 border border-primary/20 rounded-full flex items-center justify-center">
+                                <i class="fas fa-shopping-cart text-primary"></i>
                             </div>
                             <h2 class="font-serif text-2xl md:text-3xl text-primary">Pesanan Anda</h2>
                         </div>
-                        <button onclick="addOrderItem()" class="bg-gradient-to-r from-tan to-secondary text-white px-5 py-2.5 rounded-full font-semibold hover:shadow-lg transition-all text-sm flex items-center gap-2">
+                        <button onclick="addOrderItem()" class="bg-gradient-to-r from-primary to-secondary text-white px-5 py-2.5 rounded-full font-semibold hover:shadow-lg transition-all text-sm flex items-center gap-2">
                             <i class="fas fa-plus"></i>
                             <span class="hidden sm:inline">Tambah Item</span>
                         </button>
@@ -120,8 +120,8 @@
                 <!-- Catatan Tambahan -->
                 <div class="mb-10">
                     <div class="flex items-center gap-3 mb-6">
-                        <div class="w-10 h-10 bg-tan/20 rounded-full flex items-center justify-center">
-                            <i class="fas fa-comment-dots text-tan"></i>
+                        <div class="w-10 h-10 bg-primary/10 border border-primary/20 rounded-full flex items-center justify-center">
+                            <i class="fas fa-comment-dots text-primary"></i>
                         </div>
                         <h2 class="font-serif text-2xl md:text-3xl text-primary">Catatan / Request</h2>
                     </div>
@@ -133,7 +133,7 @@
 
                 <!-- Total & Submit -->
                 <div class="border-t-2 border-primary/10 pt-8">
-                    <div class="bg-gradient-to-br from-cream/80 to-tan/20 rounded-2xl p-6 md:p-8 mb-6 border-2 border-tan/30">
+                    <div class="bg-gradient-to-br from-primary/5 to-cream/50 rounded-2xl p-6 md:p-8 mb-6 border-2 border-primary/20">
                         <div class="flex justify-between items-center mb-2">
                             <span class="text-lg md:text-xl font-semibold text-primary">Total Pesanan:</span>
                             <span id="totalPrice" class="font-serif text-3xl md:text-4xl font-bold text-secondary">Rp 0</span>
@@ -159,10 +159,10 @@
             </div>
             
             <!-- Info Banner -->
-            <div class="mt-8 bg-tan/10 border-2 border-tan/30 rounded-2xl p-5 md:p-6">
+            <div class="mt-8 bg-primary/5 border-2 border-primary/20 rounded-2xl p-5 md:p-6">
                 <div class="flex items-start gap-4">
-                    <div class="w-10 h-10 bg-tan rounded-full flex items-center justify-center flex-shrink-0">
-                        <i class="fas fa-info text-white"></i>
+                    <div class="w-10 h-10 bg-primary/15 border border-primary/30 rounded-full flex items-center justify-center flex-shrink-0">
+                        <i class="fas fa-info text-primary"></i>
                     </div>
                     <div>
                         <h3 class="font-semibold text-primary mb-2">Informasi Pemesanan</h3>
@@ -183,7 +183,7 @@
         <div class="order-item border-2 border-primary/20 rounded-2xl p-5 md:p-7 bg-gradient-to-br from-white to-cream/30 hover:shadow-lg transition-all">
             <div class="flex justify-between items-start mb-5">
                 <div class="flex items-center gap-3">
-                    <div class="w-8 h-8 bg-tan rounded-full flex items-center justify-center text-white font-bold text-sm">
+                    <div class="w-8 h-8 bg-primary/15 border border-primary/30 rounded-full flex items-center justify-center text-primary font-bold text-sm">
                         <span class="item-number">1</span>
                     </div>
                     <h3 class="font-semibold text-lg text-primary">Item #<span class="item-number">1</span></h3>
@@ -231,7 +231,7 @@
                 <div class="flex items-end">
                     <div class="w-full">
                         <label class="block text-sm font-semibold mb-2 text-primary/80">Subtotal</label>
-                        <div class="item-subtotal bg-gradient-to-r from-tan/30 to-secondary/20 border-2 border-tan/40 px-5 py-3.5 rounded-xl font-bold text-secondary text-lg">
+                        <div class="item-subtotal bg-gradient-to-r from-primary/10 to-secondary/10 border-2 border-primary/20 px-5 py-3.5 rounded-xl font-bold text-secondary text-lg">
                             Rp 0
                         </div>
                     </div>
