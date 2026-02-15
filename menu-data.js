@@ -65,7 +65,7 @@ const menuItems = [
         description: 'Bolu kukus cokelat lembut dengan topping crunchy',
         fullDescription: 'Bolu kukus cokelat lembut dengan topping cokelat crunchy yang renyah dan lezat.',
         price: '12k',
-        image: '',
+        image: 'assets/ChocoCrunchy.jpeg',
         options: [
             '1 Cup : 12k'
         ]
@@ -76,7 +76,7 @@ const menuItems = [
         description: 'Camilan buah segar dengan asam kiamboy',
         fullDescription: 'Camilan buah segar dengan rasa asam-manis dan sentuhan kiamboy yang khas.',
         price: '25k',
-        image: '',
+        image: 'assets/AsinanKiamboy.jpeg',
         options: [
             '1 cup : 25k'
         ]
@@ -87,7 +87,7 @@ const menuItems = [
         description: 'Pasta dengan topping daging melimpah.',
         fullDescription: 'Pasta dengan saus gurih dan topping daging melimpah.',
         price: '15k',
-        image: '',
+        image: 'assets/Spaghetti.jpeg',
         options: [
             '1 Box : 15k'
         ]
@@ -98,7 +98,7 @@ const menuItems = [
         description: 'Roti lembut dengan topping daging',
         fullDescription: 'Roti lembut dengan topping daging pilihan yang berkualitas.',
         price: '10k/55k',
-        image: '',
+        image: 'assets/Pizza.jpeg',
         options: [
             'Personal : 10k',
             '1 Loyang sedang : 55k'
