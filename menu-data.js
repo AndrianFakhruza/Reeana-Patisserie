@@ -27,20 +27,20 @@ const menuItems = [
     },
     {
         id: 3,
-        name: 'Burnt Cheese Brownie',
+        name: 'Burnt Cheese Cake Brownie',
         description: 'Brownies meets cheesecake',
         fullDescription: 'Perpaduan antara brownies coklat yang fudgy dan cheseecake yang creamy.',
-        price: '25k/55k',
+        price: '20k/55k',
         image: 'assets/BurntCheeseCake.jpeg',
         options: [
             '1-2 person : 55k',
-            'Mini/Slice : 25k'
+            'Mini/Slice : 20k'
         ]
     },
     {
         id: 4,
         name: 'Classic Tiramisu',
-        description: 'Mascarpone & espresso',
+        description: 'Creamy mascarpone, Espresso, dan Cocoa',
         fullDescription: 'Tiramisu klasik autentik dengan mascarpone lembut dan kaya rasa.',
         price: '20k',
         image: 'assets/TiramisuCake.jpeg',
@@ -51,7 +51,7 @@ const menuItems = [
     {
         id: 5,
         name: 'Banana Pudding',
-        description: 'Pisang segar & pudding lembut',
+        description: 'Banana pudding creamy dengan topping saus caramel',
         fullDescription: 'Banana slices segar dan pudding vanilla yang lembut.',
         price: '20k',
         image: 'assets/BananaPudding.jpeg',
@@ -62,7 +62,7 @@ const menuItems = [
     {
         id: 6,
         name: 'Choco Crunchy',
-        description: 'Bolu kukus cokelat lembut',
+        description: 'Bolu kukus cokelat lembut dengan topping crunchy',
         fullDescription: 'Bolu kukus cokelat lembut dengan topping cokelat crunchy yang renyah dan lezat.',
         price: '12k',
         image: '',
@@ -73,7 +73,7 @@ const menuItems = [
     {
         id: 7,
         name: 'Asinan Kiamboy',
-        description: 'Camilan buah segar dengan kiamboy',
+        description: 'Camilan buah segar dengan asam kiamboy',
         fullDescription: 'Camilan buah segar dengan rasa asam-manis dan sentuhan kiamboy yang khas.',
         price: '25k',
         image: '',
@@ -89,7 +89,7 @@ const menuItems = [
         price: '15k',
         image: '',
         options: [
-            '1 PaperCup: 15k'
+            '1 Box : 15k'
         ]
     },
     {
