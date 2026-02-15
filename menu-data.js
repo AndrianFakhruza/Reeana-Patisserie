@@ -6,10 +6,11 @@ const menuItems = [
         name: 'ChocoBan Granola',
         description: 'Banana bread dengan granola',
         fullDescription: 'Banana bread moist dan rich dengan toping granola yang melimpah.',
-        price: '80k',
+        price: '12k/80k',
         image: 'assets/ChocBanGranola.jpeg',
         options: [
-            '1 loyang ukuran 22x10x7 : 80k'
+            '1 loyang ukuran 22x10x7 : 80k',
+            'Cup Muffin : 12k'
         ]
     },
     {
@@ -17,13 +18,11 @@ const menuItems = [
         name: 'Fudgy Brownies',
         description: 'Tekstur fudgy sempurna',
         fullDescription: 'Brownies dengan tekstur fudgy yang lembut di dalam dan crackly top diluar.',
-        price: '95k - 110k',
+        price: '20k/25k',
         image: 'assets/FudgyBrownies.jpeg',
         options: [
-            '1 loyang ukuran 20x20 ori : 95k',
-            '1 loyang ukuran 20x20 Almond : 110k',
-            'Paper cup : 30k (ori)',
-            'Paper cup : 35k (almond)'
+            'PaperCup(Ori) : 20k',
+            'PaperCup(Almond) : 25k'
         ]
     },
     {
@@ -31,33 +30,78 @@ const menuItems = [
         name: 'Burnt Cheese Brownie',
         description: 'Brownies meets cheesecake',
         fullDescription: 'Perpaduan antara brownies coklat yang fudgy dan cheseecake yang creamy.',
-        price: 'Mulai 25k',
+        price: '25k/55k',
         image: 'assets/BurntCheeseCake.jpeg',
         options: [
-            '1 loyang : 180k',
-            'Slice : 25k'
+            '1-2 person : 55k',
+            'Mini/Slice : 25k'
         ]
     },
     {
         id: 4,
         name: 'Classic Tiramisu',
         description: 'Mascarpone & espresso',
-        fullDescription: 'Tiramisu klasik dengan lapisan mascarpone yang creamy dan halus, dipadukan dengan aroma espresso yang khas dan sentuhan cocoa.',
-        price: '35k',
+        fullDescription: 'Tiramisu klasik autentik dengan mascarpone lembut dan kaya rasa.',
+        price: '20k',
         image: 'assets/TiramisuCake.jpeg',
         options: [
-            'Cup : 35k'
+            '1 Cup : 20k'
         ]
     },
     {
         id: 5,
         name: 'Banana Pudding',
-        description: 'Banana & vanilla blend',
-        fullDescription: 'Perpaduan banana slices segar, pudding vanilla yang halus, dan lapisan biskuit yang lembut disiram dengan saus caramel.',
-        price: '25k',
+        description: 'Pisang segar & pudding lembut',
+        fullDescription: 'Banana slices segar dan pudding vanilla yang lembut.',
+        price: '20k',
         image: 'assets/BananaPudding.jpeg',
         options: [
-            'Papercup : 25k'
+            '1 PaperCup : 20k'
+        ]
+    },
+    {
+        id: 6,
+        name: 'Choco Crunchy',
+        description: 'Bolu kukus cokelat lembut',
+        fullDescription: 'Bolu kukus cokelat lembut dengan topping cokelat crunchy yang renyah dan lezat.',
+        price: '12k',
+        image: '',
+        options: [
+            '1 Cup : 12k'
+        ]
+    },
+    {
+        id: 7,
+        name: 'Asinan Kiamboy',
+        description: 'Camilan buah segar dengan kiamboy',
+        fullDescription: 'Camilan buah segar dengan rasa asam-manis dan sentuhan kiamboy yang khas.',
+        price: '25k',
+        image: '',
+        options: [
+            '1 cup : 25k'
+        ]
+    },
+    {
+        id: 8,
+        name: 'Spaghetti',
+        description: 'Pasta dengan topping daging melimpah.',
+        fullDescription: 'Pasta dengan saus gurih dan topping daging melimpah.',
+        price: '15k',
+        image: '',
+        options: [
+            '1 PaperCup: 15k'
+        ]
+    },
+    {
+        id: 9,
+        name: 'Pizza',
+        description: 'Roti lembut dengan topping daging',
+        fullDescription: 'Roti lembut dengan topping daging pilihan yang berkualitas.',
+        price: '10k/55k',
+        image: '',
+        options: [
+            'Personal : 10k',
+            '1 Loyang sedang : 55k'
         ]
     }
 ];
