@@ -42,10 +42,10 @@ const menuItems = [
         name: 'Classic Tiramisu',
         description: 'Creamy mascarpone, Espresso, dan Cocoa',
         fullDescription: 'Tiramisu klasik autentik dengan mascarpone lembut dan kaya rasa.',
-        price: '20k',
+        price: '35k',
         image: 'assets/TiramisuCake.jpeg',
         options: [
-            '1 Cup : 20k'
+            '1 Cup : 35k'
         ]
     },
     {
