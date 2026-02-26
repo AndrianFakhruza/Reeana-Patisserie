@@ -8,7 +8,7 @@
 body {
     font-family: 'Poppins', sans-serif;
     background-color: #E8D8C4;
-    color: #6B2E43;
+    color: #450028;
 }
 
 html {
@@ -25,17 +25,17 @@ html {
 }
 
 ::-webkit-scrollbar-thumb {
-    background: #6B2E43;
+    background: #450028;
     border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: #884A5E;
+    background: #6B2E43;
 }
 
 /* ========== HERO BACKGROUND ========== */
 .hero-bg {
-    background: linear-gradient(135deg, rgba(42,18,31,.92), rgba(52,23,38,.88)), 
+    background: linear-gradient(135deg, rgba(20,0,15,.95), rgba(30,5,20,.93)), 
                 url('assets/BananaPudding.jpeg') center/cover fixed;
     min-height: 100vh;
 }
@@ -82,7 +82,7 @@ nav {
     position: fixed;
     width: 100%;
     z-index: 50;
-    background-color: rgba(107, 46, 67, 0.95);
+    background-color: rgba(69, 0, 40, 0.95);
     backdrop-filter: blur(12px);
     transition: all 0.3s;
 }
@@ -98,7 +98,7 @@ nav.scrolled {
     right: 0;
     height: 100%;
     width: 16rem;
-    background-color: #6B2E43;
+    background-color: #450028;
     z-index: 50;
     transform: translateX(100%);
     transition: transform 0.3s;
@@ -132,7 +132,7 @@ nav.scrolled {
 
 /* Menu Card */
 .menu-card {
-    background-color: rgba(199, 183, 163, 0.3);
+    background-color: rgba(216, 178, 111, 0.2);
     border-radius: 1.5rem;
     overflow: hidden;
     cursor: pointer;
@@ -160,7 +160,7 @@ nav.scrolled {
 .menu-card-overlay {
     position: absolute;
     inset: 0;
-    background-color: rgba(107, 46, 67, 0.45);
+    background-color: rgba(69, 0, 40, 0.45);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -184,7 +184,7 @@ nav.scrolled {
 
 .menu-card-desc {
     font-size: 0.875rem;
-    color: rgba(107, 46, 67, 0.65);
+    color: rgba(69, 0, 40, 0.65);
     font-style: italic;
     margin-bottom: 1rem;
 }
@@ -198,22 +198,22 @@ nav.scrolled {
 .menu-card-price {
     font-size: 0.875rem;
     font-weight: 700;
-    color: #884A5E;
+    color: #6B2E43;
 }
 
 .menu-card-btn {
     font-size: 0.75rem;
     font-weight: 700;
-    color: #C7B7A3;
-    border-bottom: 1px solid #C7B7A3;
+    color: #D8B26F;
+    border-bottom: 1px solid #D8B26F;
     text-transform: uppercase;
     letter-spacing: 0.05em;
     transition: all 0.3s;
 }
 
 .menu-card:hover .menu-card-btn {
-    color: #6B2E43;
-    border-bottom-color: #6B2E43;
+    color: #450028;
+    border-bottom-color: #450028;
 }
 
 /* ========== MODAL ========== */
@@ -225,7 +225,7 @@ nav.scrolled {
     align-items: center;
     justify-content: center;
     padding: 1rem;
-    background-color: rgba(107, 46, 67, 0.92);
+    background-color: rgba(69, 0, 40, 0.92);
     backdrop-filter: blur(20px);
 }
 
@@ -253,7 +253,7 @@ nav.scrolled {
 
 /* ========== FAQ ACCORDION ========== */
 .faq-item {
-    border: 1px solid rgba(107, 46, 67, 0.12);
+    border: 1px solid rgba(69, 0, 40, 0.12);
     border-radius: 1rem;
     overflow: hidden;
     margin-bottom: 1rem;
@@ -273,7 +273,7 @@ nav.scrolled {
 }
 
 .faq-button:hover {
-    background-color: rgba(199, 183, 163, 0.3);
+    background-color: rgba(216, 178, 111, 0.2);
 }
 
 .faq-icon {
@@ -292,7 +292,7 @@ nav.scrolled {
 
 .faq-content-inner {
     padding: 0 1.5rem 1.5rem;
-    color: rgba(107, 46, 67, 0.72);
+    color: rgba(69, 0, 40, 0.72);
 }
 
 /* ========== BACK TO TOP BUTTON ========== */
@@ -302,8 +302,8 @@ nav.scrolled {
     right: 2rem;
     width: 3rem;
     height: 3rem;
-    background-color: #C7B7A3;
-    color: #6B2E43;
+    background-color: #D8B26F;
+    color: #450028;
     border-radius: 50%;
     border: none;
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
@@ -320,6 +320,6 @@ nav.scrolled {
 }
 
 #backTop:hover {
-    background-color: #6B2E43;
+    background-color: #450028;
     color: white;
 }
