@@ -4,51 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pesan Sekarang - Ulvoria Patisserie</title>
-    
-    <!-- Favicon -->
     <link rel="icon" type="image/png" href="assets/LogoUlvoriaBulat.png">
     <link rel="apple-touch-icon" href="assets/LogoUlvoriaBulat.png">
-    
-    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    
-    <!-- Custom CSS -->
     <link rel="stylesheet" href="style.css">
-    
-    <!-- Tailwind Config -->
     <script>
         tailwind.config = {
             theme: {
                 extend: {
-                    colors: {
-                        primary: '#450028',
-                        secondary: '#6B2E43',
-                        tan: '#D8B26F',
-                        cream: '#E8D8C4',
-                    },
-                    fontFamily: {
-                        serif: ['Playfair Display', 'serif'],
-                        sans: ['Poppins', 'sans-serif'],
-                    }
+                    colors: { primary: '#450028', secondary: '#6B2E43', tan: '#D8B26F', cream: '#E8D8C4' },
+                    fontFamily: { serif: ['Playfair Display', 'serif'], sans: ['Poppins', 'sans-serif'] }
                 }
             }
         }
     </script>
 </head>
 <body class="bg-cream text-primary font-sans">
-
     <!-- NAVBAR -->
+    <!-- FIX POIN 1: Ekstensi logo diperbaiki dari .jpg menjadi .jpeg -->
     <nav class="bg-primary text-cream px-4 md:px-6 py-3 md:py-4 shadow-lg">
         <div class="max-w-7xl mx-auto flex justify-between items-center">
             <a href="index.html" class="flex items-center gap-2 md:gap-3">
                 <div class="w-8 h-8 md:w-10 md:h-10 bg-tan rounded-full flex items-center justify-center overflow-hidden">
-                    <img src="assets/LogoUlvoria.jpg" alt="Logo" class="w-full h-full object-cover">
+                    <img src="assets/LogoUlvoria.jpeg" alt="Logo" class="w-full h-full object-cover">
                 </div>
                 <span class="font-serif text-xl md:text-2xl font-bold">Ulvoria</span>
             </a>
@@ -58,10 +38,8 @@
         </div>
     </nav>
 
-    <!-- ORDER FORM SECTION -->
     <section class="pt-24 md:pt-28 pb-12 md:pb-16 px-4 md:px-6 min-h-screen bg-gradient-to-b from-cream via-white to-cream">
         <div class="max-w-5xl mx-auto">
-            <!-- Header -->
             <div class="text-center mb-10 md:mb-14">
                 <div class="inline-block bg-primary/10 border border-primary/20 px-6 py-2 rounded-full text-sm font-semibold mb-4 text-primary">
                     <i class="fas fa-receipt text-secondary mr-2"></i>ORDER FORM
@@ -70,10 +48,7 @@
                 <p class="text-base md:text-lg text-primary/70 max-w-2xl mx-auto">Lengkapi form di bawah untuk memesan produk kami. Pesanan akan dikirim ke WhatsApp untuk konfirmasi.</p>
             </div>
 
-            <!-- Form Container -->
             <div class="bg-white rounded-3xl shadow-2xl p-6 md:p-10 border border-tan/20">
-                
-                <!-- Informasi Pelanggan -->
                 <div class="mb-10">
                     <div class="flex items-center gap-3 mb-6">
                         <div class="w-10 h-10 bg-primary/10 border border-primary/20 rounded-full flex items-center justify-center">
@@ -86,18 +61,29 @@
                             <label class="block text-sm font-semibold mb-2 text-primary/80">
                                 Nama Lengkap <span class="text-red-500">*</span>
                             </label>
-                            <input type="text" id="customerName" required class="w-full px-5 py-3.5 border-2 border-primary/20 rounded-xl focus:outline-none focus:ring-2 focus:ring-tan focus:border-tan transition-all" placeholder="Masukkan nama Anda">
+                            <input type="text" id="customerName" required
+                                class="w-full px-5 py-3.5 border-2 border-primary/20 rounded-xl focus:outline-none focus:ring-2 focus:ring-tan focus:border-tan transition-all"
+                                placeholder="Masukkan nama Anda">
                         </div>
                         <div>
                             <label class="block text-sm font-semibold mb-2 text-primary/80">
                                 No. WhatsApp <span class="text-red-500">*</span>
                             </label>
-                            <input type="tel" id="customerPhone" required class="w-full px-5 py-3.5 border-2 border-primary/20 rounded-xl focus:outline-none focus:ring-2 focus:ring-tan focus:border-tan transition-all" placeholder="0813xxxxxxxx">
+                            <!-- FIX POIN 4: Real-time validasi nomor HP -->
+                            <input type="tel" id="customerPhone" required
+                                class="w-full px-5 py-3.5 border-2 border-primary/20 rounded-xl focus:outline-none focus:ring-2 focus:ring-tan focus:border-tan transition-all"
+                                placeholder="Contoh: 08131234567"
+                                oninput="validatePhoneInput(this)">
+                            <p id="phoneError" class="text-xs text-red-500 mt-1 hidden">
+                                <i class="fas fa-exclamation-circle mr-1"></i>Format tidak valid. Contoh: 08131234567
+                            </p>
+                            <p id="phoneSuccess" class="text-xs text-green-600 mt-1 hidden">
+                                <i class="fas fa-check-circle mr-1"></i>Nomor valid
+                            </p>
                         </div>
                     </div>
                 </div>
 
-                <!-- Pesanan -->
                 <div class="mb-10">
                     <div class="flex justify-between items-center mb-6">
                         <div class="flex items-center gap-3">
@@ -111,13 +97,9 @@
                             <span class="hidden sm:inline">Tambah Item</span>
                         </button>
                     </div>
-                    
-                    <div id="orderItemsContainer" class="space-y-5">
-                        <!-- Order items will be added here -->
-                    </div>
+                    <div id="orderItemsContainer" class="space-y-5"></div>
                 </div>
 
-                <!-- Catatan Tambahan -->
                 <div class="mb-10">
                     <div class="flex items-center gap-3 mb-6">
                         <div class="w-10 h-10 bg-primary/10 border border-primary/20 rounded-full flex items-center justify-center">
@@ -125,13 +107,14 @@
                         </div>
                         <h2 class="font-serif text-2xl md:text-3xl text-primary">Catatan / Request</h2>
                     </div>
-                    <textarea id="customerNotes" rows="4" class="w-full px-5 py-3.5 border-2 border-primary/20 rounded-xl focus:outline-none focus:ring-2 focus:ring-tan focus:border-tan transition-all" placeholder="Tuliskan catatan, pertanyaan, atau request khusus di sini...&#10;Contoh: Untuk kado ulang tahun, tolong packaging yang cantik ya!"></textarea>
+                    <textarea id="customerNotes" rows="4"
+                        class="w-full px-5 py-3.5 border-2 border-primary/20 rounded-xl focus:outline-none focus:ring-2 focus:ring-tan focus:border-tan transition-all"
+                        placeholder="Tuliskan catatan, pertanyaan, atau request khusus di sini...&#10;Contoh: Untuk kado ulang tahun, tolong packaging yang cantik ya!"></textarea>
                     <p class="text-xs text-primary/50 mt-2 italic">
                         <i class="fas fa-info-circle mr-1"></i>Opsional - Kosongkan jika tidak ada
                     </p>
                 </div>
 
-                <!-- Total & Submit -->
                 <div class="border-t-2 border-primary/10 pt-8">
                     <div class="bg-gradient-to-br from-primary/5 to-cream/50 rounded-2xl p-6 md:p-8 mb-6 border-2 border-primary/20">
                         <div class="flex justify-between items-center mb-2">
@@ -143,12 +126,10 @@
                             <p class="italic">*Harga belum termasuk ongkos kirim</p>
                         </div>
                     </div>
-                    
                     <button onclick="sendToWhatsApp()" class="w-full bg-gradient-to-r from-primary via-secondary to-primary text-white py-4 md:py-5 rounded-2xl font-bold text-base md:text-lg hover:shadow-2xl hover:scale-[1.02] transition-all flex items-center justify-center gap-3 group">
                         <i class="fab fa-whatsapp text-2xl md:text-3xl group-hover:scale-110 transition-transform"></i>
                         <span>Kirim Pesanan via WhatsApp</span>
                     </button>
-                    
                     <div class="text-center mt-5">
                         <p class="text-sm text-primary/60 flex items-center justify-center gap-2">
                             <i class="fas fa-shield-alt text-tan"></i>
@@ -158,7 +139,6 @@
                 </div>
             </div>
             
-            <!-- Info Banner -->
             <div class="mt-8 bg-primary/5 border-2 border-primary/20 rounded-2xl p-5 md:p-6">
                 <div class="flex items-start gap-4">
                     <div class="w-10 h-10 bg-primary/15 border border-primary/30 rounded-full flex items-center justify-center flex-shrink-0">
@@ -178,7 +158,6 @@
         </div>
     </section>
 
-    <!-- ORDER ITEM TEMPLATE (Hidden) -->
     <template id="orderItemTemplate">
         <div class="order-item border-2 border-primary/20 rounded-2xl p-5 md:p-7 bg-gradient-to-br from-white to-cream/30 hover:shadow-lg transition-all">
             <div class="flex justify-between items-start mb-5">
@@ -192,12 +171,9 @@
                     <i class="fas fa-trash-alt"></i>
                 </button>
             </div>
-            
             <div class="grid md:grid-cols-2 gap-4">
                 <div>
-                    <label class="block text-sm font-semibold mb-2 text-primary/80">
-                        Pilih Menu <span class="text-red-500">*</span>
-                    </label>
+                    <label class="block text-sm font-semibold mb-2 text-primary/80">Pilih Menu <span class="text-red-500">*</span></label>
                     <div class="relative">
                         <select class="menu-select w-full px-5 py-3.5 border-2 border-primary/20 rounded-xl focus:outline-none focus:ring-2 focus:ring-tan focus:border-tan transition-all appearance-none bg-white" onchange="updateOptions(this)">
                             <option value="">-- Pilih Menu --</option>
@@ -205,11 +181,8 @@
                         <i class="fas fa-chevron-down absolute right-4 top-1/2 -translate-y-1/2 text-primary/40 pointer-events-none"></i>
                     </div>
                 </div>
-                
                 <div>
-                    <label class="block text-sm font-semibold mb-2 text-primary/80">
-                        Pilih Varian <span class="text-red-500">*</span>
-                    </label>
+                    <label class="block text-sm font-semibold mb-2 text-primary/80">Pilih Varian <span class="text-red-500">*</span></label>
                     <div class="relative">
                         <select class="option-select w-full px-5 py-3.5 border-2 border-primary/20 rounded-xl focus:outline-none focus:ring-2 focus:ring-tan focus:border-tan transition-all appearance-none bg-white" onchange="calculateTotal()">
                             <option value="">-- Pilih Varian --</option>
@@ -217,17 +190,13 @@
                         <i class="fas fa-chevron-down absolute right-4 top-1/2 -translate-y-1/2 text-primary/40 pointer-events-none"></i>
                     </div>
                 </div>
-                
                 <div>
-                    <label class="block text-sm font-semibold mb-2 text-primary/80">
-                        Jumlah <span class="text-red-500">*</span>
-                    </label>
+                    <label class="block text-sm font-semibold mb-2 text-primary/80">Jumlah <span class="text-red-500">*</span></label>
                     <div class="relative">
                         <input type="number" min="1" value="1" class="quantity-input w-full px-5 py-3.5 border-2 border-primary/20 rounded-xl focus:outline-none focus:ring-2 focus:ring-tan focus:border-tan transition-all" onchange="calculateTotal()">
                         <i class="fas fa-hashtag absolute right-4 top-1/2 -translate-y-1/2 text-primary/40 pointer-events-none"></i>
                     </div>
                 </div>
-                
                 <div class="flex items-end">
                     <div class="w-full">
                         <label class="block text-sm font-semibold mb-2 text-primary/80">Subtotal</label>
@@ -240,7 +209,6 @@
         </div>
     </template>
 
-    <!-- JavaScript -->
     <script src="menu-data.js"></script>
     <script src="order-form.js"></script>
 </body>
