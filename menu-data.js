@@ -1,3 +1,8 @@
+// ========================================
+//  ULVORIA PATISSERIE - MENU DATA & LOGIC
+//  Enhanced with smooth animations & UX
+// ========================================
+
 // ========== DATA MENU ==========
 const menuItems = [
     {
@@ -105,7 +110,7 @@ const menuItems = [
     }
 ];
 
-// ========== DATA MENU RAMADHAN ==========
+// ========== DATA MENU RAMADHAN (BEST SELLER DI AWAL) ==========
 const ramadhanItems = [
     {
         id: 'r1',
@@ -114,6 +119,15 @@ const ramadhanItems = [
         price: '55/65k',
         image: 'assets/Nastar.jpeg',
         options: ['Toples Kecil : 55k', 'Toples Besar : 65k'],
+        bestSeller: true
+    },
+    {
+        id: 'r5',
+        name: 'Putri Salju',
+        description: 'Kue salju lembut berbalut gula halus yang langsung meleleh begitu masuk mulut',
+        price: '85/100k',
+        image: 'assets/Kue_Salju.jpeg',
+        options: ['Toples Kecil : 85k', 'Toples Besar : 100k'],
         bestSeller: true
     },
     {
@@ -142,25 +156,15 @@ const ramadhanItems = [
         image: 'assets/kastengel.jpg',
         options: ['Toples Kecil : 85k', 'Toples Besar : 100k'],
         bestSeller: false
-    },
-    {
-        id: 'r5',
-        name: 'Putri Salju',
-        description: 'Kue salju lembut berbalut gula halus yang langsung meleleh begitu masuk mulut',
-        price: '85/100k',
-        image: 'assets/Kue_Salju.jpeg',
-        options: ['Toples Kecil : 85k', 'Toples Besar : 100k'],
-        bestSeller: true
     }
 ];
 
 // ========== SEMUA ITEM UNTUK FORM PEMESANAN ==========
-// Gabungkan menuItems + ramadhanItems agar muncul di dropdown order form
 const allMenuItems = [
     ...menuItems,
     ...ramadhanItems.map(item => ({
         ...item,
-        id: item.id  // tetap pakai id string seperti 'r1', 'r2', dst
+        id: item.id
     }))
 ];
 
@@ -171,7 +175,10 @@ const observer = new IntersectionObserver(entries => {
             entry.target.classList.add('active');
         }
     });
-}, { threshold: 0.1 });
+}, { 
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+});
 
 function observeReveal(container) {
     container.querySelectorAll('.reveal').forEach(el => observer.observe(el));
@@ -182,18 +189,22 @@ function renderMenu() {
     const menuContainer = document.getElementById('menuContainer');
     if (!menuContainer) return;
 
-    menuItems.forEach(item => {
+    menuItems.forEach((item, index) => {
         const menuCard = document.createElement('div');
         menuCard.className = 'menu-card reveal';
+        menuCard.style.animationDelay = `${index * 0.1}s`;
         menuCard.onclick = () => openModal(item);
 
         menuCard.innerHTML = `
             <div class="menu-card-image">
-                <img src="${item.image}" class="w-full h-full object-cover img-zoom" alt="${item.name}">
+                <img src="${item.image}" class="w-full h-full object-cover img-zoom" alt="${item.name}" loading="lazy">
                 <div class="menu-card-overlay">
-                    <span class="bg-white text-primary px-6 py-2 rounded-full font-bold shadow-lg text-sm md:text-base">
-                        Lihat Detail
-                    </span>
+                    <div class="flex flex-col items-center gap-3">
+                        <i class="fas fa-eye text-white text-3xl"></i>
+                        <span class="bg-white text-primary px-6 py-2 rounded-full font-bold shadow-lg text-sm md:text-base">
+                            Lihat Detail
+                        </span>
+                    </div>
                 </div>
             </div>
             <div class="menu-card-content">
@@ -201,7 +212,10 @@ function renderMenu() {
                 <p class="menu-card-desc">${item.description}</p>
                 <div class="menu-card-footer">
                     <span class="menu-card-price">${item.price}</span>
-                    <button class="menu-card-btn">Detail Produk</button>
+                    <button class="menu-card-btn">
+                        <i class="fas fa-info-circle mr-1"></i>
+                        Detail
+                    </button>
                 </div>
             </div>
         `;
@@ -217,36 +231,43 @@ function renderRamadhan() {
     const ramadhanContainer = document.getElementById('ramadhanMenuContainer');
     if (!ramadhanContainer) return;
 
-    ramadhanItems.forEach(item => {
+    ramadhanItems.forEach((item, index) => {
         const card = document.createElement('div');
-        card.className = 'group bg-white/80 backdrop-blur-sm rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all hover:-translate-y-2 border-2 border-emerald-200/50 reveal';
+        card.className = 'group bg-white/90 backdrop-blur-sm rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 border-2 border-emerald-200/50 hover:border-emerald-400/50 reveal cursor-pointer';
+        card.style.animationDelay = `${index * 0.15}s`;
+        card.onclick = () => window.location.href = 'order.html';
 
-        // Badge hanya muncul untuk item bestSeller: true
         const badgeHTML = item.bestSeller
-            ? `<div class="absolute top-4 right-4 bg-[#D8B26F] text-[#450028] px-4 py-2 rounded-full font-bold text-sm shadow-lg flex items-center gap-2">
+            ? `<div class="absolute top-4 right-4 bg-gradient-to-r from-amber-400 to-yellow-500 text-white px-4 py-2 rounded-full font-bold text-xs shadow-lg flex items-center gap-2 animate-pulse">
                    <i class="fas fa-star"></i>
                    <span>Best Seller</span>
                </div>`
             : '';
 
         card.innerHTML = `
-            <div class="relative overflow-hidden h-64 md:h-72">
-                <img src="${item.image}" class="w-full h-full object-cover img-zoom" alt="${item.name}">
+            <div class="relative overflow-hidden h-72">
+                <img src="${item.image}" class="w-full h-full object-cover img-zoom" alt="${item.name}" loading="lazy">
                 ${badgeHTML}
-                <div class="absolute inset-0 bg-gradient-to-t from-emerald-900/60 via-emerald-600/30 to-transparent opacity-0 group-hover:opacity-100 transition flex items-end p-6">
-                    <div class="text-white">
-                        <p class="text-sm font-semibold">Klik untuk pesan →</p>
+                <div class="absolute inset-0 bg-gradient-to-t from-emerald-900/80 via-emerald-600/40 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-center justify-center">
+                    <div class="text-white transform scale-90 group-hover:scale-100 transition-transform duration-300">
+                        <div class="bg-white/20 backdrop-blur-md px-6 py-3 rounded-full border border-white/30">
+                            <p class="text-lg font-bold flex items-center gap-2">
+                                <i class="fas fa-shopping-cart"></i>
+                                <span>Pesan Sekarang</span>
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="p-5 md:p-6">
-                <h3 class="font-serif text-2xl mb-2 text-emerald-900">${item.name}</h3>
-                <p class="text-sm text-emerald-700/80 mb-4 italic">${item.description}</p>
+            <div class="p-6">
+                <h3 class="font-serif text-2xl mb-3 text-emerald-900 font-bold">${item.name}</h3>
+                <p class="text-sm text-emerald-700/80 mb-5 italic leading-relaxed">${item.description}</p>
                 <div class="flex items-center justify-between">
-                    <span class="text-lg font-bold text-emerald-800">${item.price}</span>
-                    <a href="order.html" class="bg-gradient-to-r from-emerald-600 to-teal-600 text-white px-4 py-2 rounded-full text-xs font-semibold hover:shadow-lg transition">
-                        Pesan
-                    </a>
+                    <span class="text-xl font-bold text-emerald-800 bg-emerald-50 px-4 py-2 rounded-full">${item.price}</span>
+                    <div class="bg-gradient-to-r from-emerald-600 to-teal-600 text-white px-5 py-2.5 rounded-full text-sm font-semibold hover:shadow-lg transition-all hover:scale-105 flex items-center gap-2">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span>Pesan</span>
+                    </div>
                 </div>
             </div>
         `;
@@ -263,7 +284,12 @@ function openModal(item) {
     document.getElementById('modalDesc').innerText = item.fullDescription;
     document.getElementById('modalImg').src = item.image;
 
-    const optionsHTML = item.options.map(opt => `• ${opt}`).join('<br>');
+    const optionsHTML = item.options.map(opt => 
+        `<div class="flex items-center gap-2 py-1">
+            <i class="fas fa-check-circle text-tan text-xs"></i>
+            <span>${opt}</span>
+        </div>`
+    ).join('');
     document.getElementById('modalOptions').innerHTML = optionsHTML;
 
     document.getElementById('waLink').href = 'order.html';
@@ -294,7 +320,9 @@ function closeModal() {
 
 // ========== TOGGLE FUNCTIONS ==========
 function toggleMenu() {
-    document.getElementById('mobileMenu').classList.toggle('active');
+    const menu = document.getElementById('mobileMenu');
+    menu.classList.toggle('active');
+    document.body.style.overflow = menu.classList.contains('active') ? 'hidden' : 'auto';
 }
 
 function toggleFaq(button) {
@@ -318,19 +346,30 @@ function toggleFaq(button) {
 }
 
 // ========== SCROLL EFFECTS ==========
+let lastScrollY = window.scrollY;
+
 window.addEventListener('scroll', () => {
     const nav = document.getElementById('nav');
     const backTop = document.getElementById('backTop');
+    const currentScrollY = window.scrollY;
 
     if (nav) {
-        if (window.scrollY > 100) nav.classList.add('scrolled');
-        else nav.classList.remove('scrolled');
+        if (currentScrollY > 100) {
+            nav.classList.add('scrolled');
+        } else {
+            nav.classList.remove('scrolled');
+        }
     }
 
     if (backTop) {
-        if (window.scrollY > 500) backTop.classList.add('visible');
-        else backTop.classList.remove('visible');
+        if (currentScrollY > 500) {
+            backTop.classList.add('visible');
+        } else {
+            backTop.classList.remove('visible');
+        }
     }
+
+    lastScrollY = currentScrollY;
 });
 
 // ========== SMOOTH SCROLL ==========
@@ -339,14 +378,23 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         e.preventDefault();
         const target = document.querySelector(anchor.getAttribute('href'));
         if (target) {
-            target.scrollIntoView({ behavior: 'smooth' });
+            const navHeight = document.getElementById('nav')?.offsetHeight || 0;
+            const targetPosition = target.offsetTop - navHeight;
+            
+            window.scrollTo({
+                top: targetPosition,
+                behavior: 'smooth'
+            });
+            
             const mobileMenu = document.getElementById('mobileMenu');
-            if (mobileMenu && mobileMenu.classList.contains('active')) toggleMenu();
+            if (mobileMenu && mobileMenu.classList.contains('active')) {
+                toggleMenu();
+            }
         }
     });
 });
 
-// ========== MODAL CLOSE ==========
+// ========== MODAL CLOSE HANDLERS ==========
 const modalEl = document.getElementById('modal');
 if (modalEl) {
     modalEl.addEventListener('click', (e) => {
@@ -355,7 +403,13 @@ if (modalEl) {
 }
 
 document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') closeModal();
+    if (e.key === 'Escape') {
+        closeModal();
+        const mobileMenu = document.getElementById('mobileMenu');
+        if (mobileMenu && mobileMenu.classList.contains('active')) {
+            toggleMenu();
+        }
+    }
 });
 
 // ========== INITIALIZE ==========
@@ -363,4 +417,7 @@ document.addEventListener('DOMContentLoaded', () => {
     renderMenu();
     renderRamadhan();
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    
+    console.log('%c🍰 Ulvoria Patisserie', 'font-size: 20px; font-weight: bold; color: #450028;');
+    console.log('%cWebsite loaded successfully!', 'font-size: 12px; color: #6B2E43;');
 });

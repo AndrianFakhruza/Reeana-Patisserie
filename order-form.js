@@ -12,15 +12,12 @@ function addOrderItem() {
     const template = document.getElementById('orderItemTemplate');
     const clone = template.content.cloneNode(true);
 
-    // Set item number
     itemCounter++;
     clone.querySelectorAll('.item-number').forEach(el => el.textContent = itemCounter);
 
-    // Store counter value on the element for reference
     const orderItem = clone.querySelector('.order-item');
     orderItem.dataset.itemId = itemCounter;
 
-    // Populate menu options
     const menuSelect = clone.querySelector('.menu-select');
     allMenuItems.forEach(item => {
         const option = document.createElement('option');
@@ -41,7 +38,7 @@ function removeOrderItem(button) {
     calculateTotal();
 }
 
-// ========== RENUMBER ITEMS (FIX POIN 5) ==========
+// ========== RENUMBER ITEMS ==========
 function renumberItems() {
     const items = document.querySelectorAll('.order-item');
     items.forEach((item, index) => {
@@ -104,9 +101,8 @@ function formatRupiah(amount) {
     return 'Rp ' + amount.toLocaleString('id-ID');
 }
 
-// ========== VALIDASI NOMOR HP (FIX POIN 4) ==========
+// ========== VALIDASI NOMOR HP ==========
 function validatePhoneNumber(phone) {
-    // Format valid: 08xx, +628xx, 628xx, minimal 10 digit maksimal 13 digit
     const cleaned = phone.replace(/[\s\-().]/g, '');
     const pattern = /^(\+62|62|0)8[1-9][0-9]{7,10}$/;
     return pattern.test(cleaned);
@@ -118,14 +114,12 @@ function sendToWhatsApp() {
     const customerPhone = document.getElementById('customerPhone').value.trim();
     const customerNotes = document.getElementById('customerNotes').value.trim();
 
-    // Validasi nama
     if (!customerName) {
         showAlert('⚠️ Nama lengkap wajib diisi!');
         document.getElementById('customerName').focus();
         return;
     }
 
-    // Validasi nomor HP (Poin 4)
     if (!customerPhone) {
         showAlert('⚠️ Nomor WhatsApp wajib diisi!');
         document.getElementById('customerPhone').focus();
@@ -144,7 +138,6 @@ function sendToWhatsApp() {
         return;
     }
 
-    // Validate all items
     let hasError = false;
     orderItems.forEach((item, index) => {
         if (hasError) return;
@@ -159,7 +152,6 @@ function sendToWhatsApp() {
 
     if (hasError) return;
 
-    // Build WhatsApp message
     let message = `*PESANAN BARU - ULVORIA PATISSERIE*\n\n`;
     message += `Nama: ${customerName}\n`;
     message += `No. WA: ${customerPhone}\n\n`;
@@ -203,7 +195,6 @@ function sendToWhatsApp() {
 
 // ========== CUSTOM ALERT ==========
 function showAlert(message) {
-    // Buat modal alert sederhana agar tidak bergantung pada browser alert()
     const existing = document.getElementById('customAlert');
     if (existing) existing.remove();
 
@@ -232,7 +223,7 @@ document.addEventListener('DOMContentLoaded', () => {
     addOrderItem();
 });
 
-// ========== REAL-TIME VALIDASI NOMOR HP (FIX POIN 4) ==========
+// ========== REAL-TIME VALIDASI NOMOR HP ==========
 function validatePhoneInput(input) {
     const errorEl = document.getElementById('phoneError');
     const successEl = document.getElementById('phoneSuccess');

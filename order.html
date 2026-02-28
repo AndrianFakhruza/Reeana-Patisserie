@@ -7,7 +7,7 @@
     <link rel="icon" type="image/png" href="assets/LogoUlvoriaBulat.png">
     <link rel="apple-touch-icon" href="assets/LogoUlvoriaBulat.png">
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
     <script>
@@ -22,15 +22,13 @@
     </script>
 </head>
 <body class="bg-cream text-primary font-sans">
-    <!-- NAVBAR -->
-    <!-- FIX POIN 1: Ekstensi logo diperbaiki dari .jpg menjadi .jpeg -->
     <nav class="bg-primary text-cream px-4 md:px-6 py-3 md:py-4 shadow-lg">
         <div class="max-w-7xl mx-auto flex justify-between items-center">
             <a href="index.html" class="flex items-center gap-2 md:gap-3">
                 <div class="w-8 h-8 md:w-10 md:h-10 bg-tan rounded-full flex items-center justify-center overflow-hidden">
                     <img src="assets/LogoUlvoria.jpg" alt="Logo" class="w-full h-full object-cover">
                 </div>
-                <span class="font-serif text-xl md:text-2xl font-bold">Ulvoria</span>
+                <span class="font-serif text-xl md:text-2xl font-bold italic">Ulvoria</span>
             </a>
             <a href="index.html" class="text-tan hover:text-white transition">
                 <i class="fas fa-arrow-left mr-2"></i>Kembali
@@ -44,7 +42,7 @@
                 <div class="inline-block bg-primary/10 border border-primary/20 px-6 py-2 rounded-full text-sm font-semibold mb-4 text-primary">
                     <i class="fas fa-receipt text-secondary mr-2"></i>ORDER FORM
                 </div>
-                <h1 class="font-serif text-4xl md:text-6xl mb-4 text-primary">Form Pemesanan</h1>
+                <h1 class="font-serif text-4xl md:text-6xl mb-4 text-primary italic font-bold">Form Pemesanan</h1>
                 <p class="text-base md:text-lg text-primary/70 max-w-2xl mx-auto">Lengkapi form di bawah untuk memesan produk kami. Pesanan akan dikirim ke WhatsApp untuk konfirmasi.</p>
             </div>
 
@@ -54,7 +52,7 @@
                         <div class="w-10 h-10 bg-primary/10 border border-primary/20 rounded-full flex items-center justify-center">
                             <i class="fas fa-user text-primary"></i>
                         </div>
-                        <h2 class="font-serif text-2xl md:text-3xl text-primary">Informasi Pelanggan</h2>
+                        <h2 class="font-serif text-2xl md:text-3xl text-primary italic font-bold">Informasi Pelanggan</h2>
                     </div>
                     <div class="grid md:grid-cols-2 gap-5">
                         <div>
@@ -69,7 +67,6 @@
                             <label class="block text-sm font-semibold mb-2 text-primary/80">
                                 No. WhatsApp <span class="text-red-500">*</span>
                             </label>
-                            <!-- FIX POIN 4: Real-time validasi nomor HP -->
                             <input type="tel" id="customerPhone" required
                                 class="w-full px-5 py-3.5 border-2 border-primary/20 rounded-xl focus:outline-none focus:ring-2 focus:ring-tan focus:border-tan transition-all"
                                 placeholder="Contoh: 08131234567"
@@ -90,7 +87,7 @@
                             <div class="w-10 h-10 bg-primary/10 border border-primary/20 rounded-full flex items-center justify-center">
                                 <i class="fas fa-shopping-cart text-primary"></i>
                             </div>
-                            <h2 class="font-serif text-2xl md:text-3xl text-primary">Pesanan Anda</h2>
+                            <h2 class="font-serif text-2xl md:text-3xl text-primary italic font-bold">Pesanan Anda</h2>
                         </div>
                         <button onclick="addOrderItem()" class="bg-gradient-to-r from-primary to-secondary text-white px-5 py-2.5 rounded-full font-semibold hover:shadow-lg transition-all text-sm flex items-center gap-2">
                             <i class="fas fa-plus"></i>
@@ -105,7 +102,7 @@
                         <div class="w-10 h-10 bg-primary/10 border border-primary/20 rounded-full flex items-center justify-center">
                             <i class="fas fa-comment-dots text-primary"></i>
                         </div>
-                        <h2 class="font-serif text-2xl md:text-3xl text-primary">Catatan / Request</h2>
+                        <h2 class="font-serif text-2xl md:text-3xl text-primary italic font-bold">Catatan / Request</h2>
                     </div>
                     <textarea id="customerNotes" rows="4"
                         class="w-full px-5 py-3.5 border-2 border-primary/20 rounded-xl focus:outline-none focus:ring-2 focus:ring-tan focus:border-tan transition-all"
@@ -119,7 +116,7 @@
                     <div class="bg-gradient-to-br from-primary/5 to-cream/50 rounded-2xl p-6 md:p-8 mb-6 border-2 border-primary/20">
                         <div class="flex justify-between items-center mb-2">
                             <span class="text-lg md:text-xl font-semibold text-primary">Total Pesanan:</span>
-                            <span id="totalPrice" class="font-serif text-3xl md:text-4xl font-bold text-secondary">Rp 0</span>
+                            <span id="totalPrice" class="font-serif text-3xl md:text-4xl font-bold text-secondary italic">Rp 0</span>
                         </div>
                         <div class="flex items-center gap-2 text-sm text-primary/60">
                             <i class="fas fa-truck"></i>

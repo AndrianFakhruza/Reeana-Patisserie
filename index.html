@@ -13,7 +13,9 @@
     <script src="https://cdn.tailwindcss.com"></script>
     
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -46,106 +48,163 @@
     <!-- NAVBAR -->
     <nav id="nav" class="text-cream px-4 md:px-6 py-3 md:py-4">
         <div class="max-w-7xl mx-auto flex justify-between items-center">
-            <div class="flex items-center gap-2 md:gap-3">
-                <div class="w-8 h-8 md:w-10 md:h-10 bg-tan rounded-full flex items-center justify-center overflow-hidden">
+            <div class="flex items-center gap-2 md:gap-3 hover:scale-105 transition-transform duration-300">
+                <div class="w-10 h-10 md:w-12 md:h-12 bg-tan rounded-full flex items-center justify-center overflow-hidden ring-2 ring-tan/30 ring-offset-2 ring-offset-primary">
                     <img src="assets/LogoUlvoria.jpg" alt="Logo" class="w-full h-full object-cover">
                 </div>
-                <span class="font-serif text-xl md:text-2xl font-bold">Ulvoria</span>
+                <span class="font-serif text-xl md:text-2xl font-bold italic tracking-wide">Ulvoria</span>
             </div>
-            <div class="hidden md:flex gap-6 text-sm">
-                <a href="#home" class="hover:text-tan transition">Beranda</a>
-                <a href="#about" class="hover:text-tan transition">Tentang</a>
-                <a href="#menu" class="hover:text-tan transition">Menu</a>
-                <a href="#faq" class="hover:text-tan transition">FAQ</a>
+            <div class="hidden md:flex gap-8 text-sm font-medium">
+                <a href="#home" class="relative hover:text-tan transition-colors group">
+                    Beranda
+                    <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-tan transition-all duration-300 group-hover:w-full"></span>
+                </a>
+                <a href="#about" class="relative hover:text-tan transition-colors group">
+                    Tentang
+                    <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-tan transition-all duration-300 group-hover:w-full"></span>
+                </a>
+                <a href="#menu" class="relative hover:text-tan transition-colors group">
+                    Menu
+                    <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-tan transition-all duration-300 group-hover:w-full"></span>
+                </a>
+                <a href="#faq" class="relative hover:text-tan transition-colors group">
+                    FAQ
+                    <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-tan transition-all duration-300 group-hover:w-full"></span>
+                </a>
             </div>
-            <a href="#contact" class="hidden md:block bg-tan text-primary px-6 py-2 rounded-full font-semibold hover:bg-white transition">Kontak</a>
-            <button onclick="toggleMenu()" class="md:hidden text-xl"><i class="fas fa-bars"></i></button>
+            <a href="#contact" class="hidden md:block bg-tan text-primary px-6 py-2.5 rounded-full font-semibold hover:bg-white hover:shadow-lg transition-all hover:scale-105">
+                Kontak
+            </a>
+            <button onclick="toggleMenu()" class="md:hidden text-xl hover:text-tan transition-colors">
+                <i class="fas fa-bars"></i>
+            </button>
         </div>
     </nav>
 
     <!-- MOBILE MENU -->
     <div id="mobileMenu">
-        <button onclick="toggleMenu()" class="absolute top-6 right-6 text-cream text-2xl">
+        <button onclick="toggleMenu()" class="absolute top-6 right-6 text-cream text-2xl hover:rotate-90 transition-transform duration-300">
             <i class="fas fa-times"></i>
         </button>
         <div class="flex flex-col gap-6 mt-20 px-8 text-cream">
-            <a href="#home" onclick="toggleMenu()">Beranda</a>
-            <a href="#about" onclick="toggleMenu()">Tentang</a>
-            <a href="#menu" onclick="toggleMenu()">Menu</a>
-            <a href="#faq" onclick="toggleMenu()">FAQ</a>
-            <a href="#contact" onclick="toggleMenu()">Kontak</a>
+            <a href="#home" onclick="toggleMenu()" class="text-lg hover:text-tan transition-colors hover:translate-x-2 duration-300">Beranda</a>
+            <a href="#about" onclick="toggleMenu()" class="text-lg hover:text-tan transition-colors hover:translate-x-2 duration-300">Tentang</a>
+            <a href="#menu" onclick="toggleMenu()" class="text-lg hover:text-tan transition-colors hover:translate-x-2 duration-300">Menu</a>
+            <a href="#faq" onclick="toggleMenu()" class="text-lg hover:text-tan transition-colors hover:translate-x-2 duration-300">FAQ</a>
+            <a href="#contact" onclick="toggleMenu()" class="text-lg hover:text-tan transition-colors hover:translate-x-2 duration-300">Kontak</a>
         </div>
     </div>
 
     <!-- HERO SECTION -->
-    <header id="home" class="min-h-screen hero-bg flex items-center justify-center text-center text-white px-4">
-        <div class="max-w-4xl reveal">
-            <h1 class="font-serif text-4xl md:text-6xl lg:text-8xl mb-4 font-bold italic text-white drop-shadow-2xl">Ulvoria</h1>
-            <p class="text-lg md:text-xl lg:text-2xl mb-6 md:mb-8 text-cream drop-shadow-lg">Patisserie</p>
-            <p class="text-base md:text-lg lg:text-xl mb-8 md:mb-12 max-w-2xl mx-auto px-4 text-cream/95 drop-shadow-md">
-                Membawa <span class="italic text-white font-semibold">euphoria</span> di setiap gigitan dengan baked goods premium dari Banda Aceh
+    <header id="home" class="min-h-screen hero-bg flex items-center justify-center text-center text-white px-4 relative overflow-hidden">
+        <!-- Decorative Elements -->
+        <div class="absolute top-20 left-10 w-32 h-32 bg-tan/10 rounded-full blur-3xl animate-pulse"></div>
+        <div class="absolute bottom-20 right-10 w-40 h-40 bg-tan/10 rounded-full blur-3xl animate-pulse" style="animation-delay: 2s;"></div>
+        
+        <div class="max-w-5xl reveal relative z-10">
+            <div class="inline-flex items-center gap-2 bg-white/15 backdrop-blur-md border border-white/20 px-6 py-3 rounded-full mb-8 shadow-2xl hover:scale-105 transition-transform duration-300">
+                <i class="fas fa-star text-tan animate-pulse"></i>
+                <span class="text-sm font-medium tracking-widest uppercase">Est. 2025</span>
+            </div>
+            
+            <h1 class="font-serif text-5xl md:text-7xl lg:text-8xl mb-4 font-bold italic text-white drop-shadow-2xl tracking-tight">
+                Ulvoria
+            </h1>
+            <p class="text-2xl md:text-3xl lg:text-4xl mb-8 text-cream drop-shadow-lg font-serif italic">
+                Patisserie
             </p>
+            <div class="w-24 h-1 bg-gradient-to-r from-transparent via-tan to-transparent mx-auto mb-8"></div>
+            
+            <p class="text-base md:text-lg lg:text-xl mb-12 max-w-3xl mx-auto px-4 text-cream/95 drop-shadow-md leading-relaxed">
+                Membawa <span class="italic text-tan font-semibold">euphoria</span> di setiap gigitan dengan baked goods premium dari Banda Aceh
+            </p>
+            
             <div class="flex flex-col sm:flex-row gap-4 justify-center px-4">
-                <a href="#menu" class="bg-cream text-primary px-6 md:px-8 py-3 md:py-4 rounded-full font-bold hover:bg-white hover:scale-105 transition-all text-sm md:text-base shadow-xl">
-                    Lihat Menu
+                <a href="#menu" class="group bg-tan text-primary px-8 md:px-10 py-4 rounded-full font-bold hover:bg-white hover:shadow-2xl transition-all text-sm md:text-base shadow-xl hover:scale-105">
+                    <span>Lihat Menu</span>
+                    <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform inline-block"></i>
                 </a>
-                <a href="order.html" class="border-2 border-cream bg-white/10 backdrop-blur-sm text-white px-6 md:px-8 py-3 md:py-4 rounded-full font-bold hover:bg-white hover:text-primary transition-all text-sm md:text-base shadow-xl">
-                    Pesan Sekarang
+                <a href="order.html" class="group border-2 border-tan bg-white/10 backdrop-blur-sm text-white px-8 md:px-10 py-4 rounded-full font-bold hover:bg-tan hover:text-primary transition-all text-sm md:text-base shadow-xl hover:scale-105">
+                    <i class="fas fa-shopping-cart mr-2"></i>
+                    <span>Pesan Sekarang</span>
                 </a>
             </div>
         </div>
     </header>
 
     <!-- ABOUT SECTION -->
-    <section id="about" class="py-16 md:py-20 px-4 md:px-6 bg-gradient-to-b from-cream to-white">
-        <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-8 md:gap-16 items-center">
+    <section id="about" class="py-20 md:py-28 px-4 md:px-6 bg-gradient-to-b from-cream via-white to-cream relative overflow-hidden">
+        <!-- Decorative Background -->
+        <div class="absolute top-0 right-0 w-96 h-96 bg-tan/5 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-0 left-0 w-80 h-80 bg-primary/5 rounded-full blur-3xl"></div>
+        
+        <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 md:gap-20 items-center relative z-10">
             <div class="reveal order-2 md:order-1">
                 <div class="relative group">
-                    <div class="absolute -inset-4 md:-inset-6 border-2 border-tan/30 rounded-3xl group-hover:-inset-6 md:group-hover:-inset-8 transition-all"></div>
-                    <div class="relative overflow-hidden rounded-2xl shadow-2xl">
+                    <div class="absolute -inset-6 md:-inset-8 border-2 border-tan/20 rounded-3xl group-hover:border-tan/40 group-hover:-inset-10 transition-all duration-500"></div>
+                    <div class="absolute -inset-4 md:-inset-6 bg-gradient-to-br from-tan/10 to-primary/10 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-500"></div>
+                    <div class="relative overflow-hidden rounded-3xl shadow-2xl ring-1 ring-tan/20">
                         <img src="assets/pic-about.png" class="w-full img-zoom" alt="Ulvoria Kitchen">
                     </div>
                 </div>
             </div>
+            
             <div class="reveal order-1 md:order-2">
-                <span class="inline-block bg-primary/10 border border-primary/20 px-4 md:px-6 py-2 rounded-full text-xs md:text-sm font-semibold mb-4 md:mb-6 text-primary">
-                    TENTANG KAMI
-                </span>
-                <h2 class="font-serif text-3xl md:text-4xl lg:text-5xl mb-4 md:mb-6 text-primary">
-                    <span class="text-secondary italic">Euphoria</span> Di Setiap Gigitan
+                <div class="inline-flex items-center gap-2 bg-gradient-to-r from-primary/10 to-secondary/10 border border-primary/20 px-6 py-2.5 rounded-full text-xs md:text-sm font-semibold mb-6 text-primary shadow-sm">
+                    <i class="fas fa-sparkles text-tan"></i>
+                    <span class="tracking-wider uppercase">Tentang Kami</span>
+                </div>
+                
+                <h2 class="font-serif text-4xl md:text-5xl lg:text-6xl mb-6 text-primary leading-tight">
+                    <span class="text-secondary italic font-bold">Euphoria</span> Di Setiap Gigitan
                 </h2>
-                <p class="text-base md:text-lg text-primary/75 mb-4 md:mb-6 leading-relaxed">
+                
+                <div class="w-20 h-1 bg-gradient-to-r from-tan to-transparent mb-6"></div>
+                
+                <p class="text-base md:text-lg text-primary/75 mb-6 leading-relaxed">
                     Terinspirasi dari kebahagiaan kecil yang lahir dari kudapan manis dan asin buatan rumah, 
                     <span class="font-bold text-primary">Ulvoria Patisserie</span> menghadirkan berbagai baked goods 
                     dan pasta yang lembut, kaya rasa, dan dibuat dengan sepenuh hati.
                 </p>
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-4">
-                    <div class="flex gap-3">
-                        <i class="fas fa-check-circle text-tan mt-1"></i>
+                
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-8">
+                    <div class="flex gap-3 items-start group">
+                        <div class="w-10 h-10 bg-tan/20 rounded-full flex items-center justify-center flex-shrink-0 group-hover:bg-tan/30 transition-colors">
+                            <i class="fas fa-gem text-primary"></i>
+                        </div>
                         <div>
-                            <div class="font-semibold text-sm md:text-base">Bahan Premium</div>
-                            <div class="text-xs md:text-sm text-primary/60">Kualitas terbaik</div>
+                            <div class="font-semibold text-base">Bahan Premium</div>
+                            <div class="text-sm text-primary/60">Kualitas terbaik pilihan</div>
                         </div>
                     </div>
-                    <div class="flex gap-3">
-                        <i class="fas fa-check-circle text-tan mt-1"></i>
+                    
+                    <div class="flex gap-3 items-start group">
+                        <div class="w-10 h-10 bg-tan/20 rounded-full flex items-center justify-center flex-shrink-0 group-hover:bg-tan/30 transition-colors">
+                            <i class="fas fa-clock text-primary"></i>
+                        </div>
                         <div>
-                            <div class="font-semibold text-sm md:text-base">Fresh Daily</div>
-                            <div class="text-xs md:text-sm text-primary/60">Dibuat fresh</div>
+                            <div class="font-semibold text-base">Fresh Daily</div>
+                            <div class="text-sm text-primary/60">Dibuat fresh setiap hari</div>
                         </div>
                     </div>
-                    <div class="flex gap-3">
-                        <i class="fas fa-check-circle text-tan mt-1"></i>
+                    
+                    <div class="flex gap-3 items-start group">
+                        <div class="w-10 h-10 bg-tan/20 rounded-full flex items-center justify-center flex-shrink-0 group-hover:bg-tan/30 transition-colors">
+                            <i class="fas fa-award text-primary"></i>
+                        </div>
                         <div>
-                            <div class="font-semibold text-sm md:text-base">Resep Teruji</div>
-                            <div class="text-xs md:text-sm text-primary/60">Formula sempurna</div>
+                            <div class="font-semibold text-base">Resep Teruji</div>
+                            <div class="text-sm text-primary/60">Formula sempurna</div>
                         </div>
                     </div>
-                    <div class="flex gap-3">
-                        <i class="fas fa-check-circle text-tan mt-1"></i>
+                    
+                    <div class="flex gap-3 items-start group">
+                        <div class="w-10 h-10 bg-tan/20 rounded-full flex items-center justify-center flex-shrink-0 group-hover:bg-tan/30 transition-colors">
+                            <i class="fas fa-truck text-primary"></i>
+                        </div>
                         <div>
-                            <div class="font-semibold text-sm md:text-base">Pengiriman Aman</div>
-                            <div class="text-xs md:text-sm text-primary/60">Packaging premium</div>
+                            <div class="font-semibold text-base">Pengiriman Aman</div>
+                            <div class="text-sm text-primary/60">Packaging premium</div>
                         </div>
                     </div>
                 </div>
@@ -154,14 +213,23 @@
     </section>
 
     <!-- MENU SECTION -->
-    <section id="menu" class="py-16 md:py-20 px-4 md:px-6 bg-white">
+    <section id="menu" class="py-20 md:py-28 px-4 md:px-6 bg-white relative">
         <div class="max-w-7xl mx-auto w-full">
-            <div class="text-center mb-8 md:mb-12 reveal">
-                <span class="inline-block bg-primary/10 border border-primary/20 px-4 md:px-6 py-2 rounded-full text-xs md:text-sm font-semibold mb-4 text-primary">
-                    SIGNATURE COLLECTION
-                </span>
-                <h2 class="font-serif text-3xl md:text-4xl lg:text-5xl mb-4 md:mb-6 text-primary">Menu Pilihan Kami</h2>
-                <p class="text-sm md:text-base text-primary/65">Koleksi premium baked goods kami</p>
+            <div class="text-center mb-12 md:mb-16 reveal">
+                <div class="inline-flex items-center gap-2 bg-gradient-to-r from-primary/10 to-secondary/10 border border-primary/20 px-6 py-2.5 rounded-full text-xs md:text-sm font-semibold mb-6 text-primary shadow-sm">
+                    <i class="fas fa-crown text-tan"></i>
+                    <span class="tracking-wider uppercase">Signature Collection</span>
+                </div>
+                
+                <h2 class="font-serif text-4xl md:text-5xl lg:text-6xl mb-6 text-primary italic font-bold">
+                    Menu Pilihan Kami
+                </h2>
+                
+                <div class="w-24 h-1 bg-gradient-to-r from-transparent via-tan to-transparent mx-auto mb-6"></div>
+                
+                <p class="text-sm md:text-base text-primary/65 max-w-2xl mx-auto">
+                    Koleksi premium baked goods yang dibuat dengan penuh cinta dan dedikasi
+                </p>
             </div>
             
             <!-- Menu Container - Populated by JavaScript -->
@@ -170,52 +238,49 @@
     </section>
 
     <!-- RAMADHAN SPECIAL SECTION -->
-    <section id="ramadhan" class="py-16 md:py-20 px-4 md:px-6 bg-gradient-to-br from-emerald-50 via-green-50 to-teal-50 relative overflow-hidden">
+    <section id="ramadhan" class="py-20 md:py-28 px-4 md:px-6 bg-gradient-to-br from-emerald-50 via-green-50 to-teal-50 relative overflow-hidden">
         <!-- Decorative Elements -->
-        <div class="absolute top-10 left-10 text-emerald-200/30 text-8xl transform -rotate-12">
+        <div class="absolute top-10 left-10 text-emerald-200/20 text-9xl transform -rotate-12">
             <i class="fas fa-moon"></i>
         </div>
-        <div class="absolute bottom-10 right-10 text-teal-200/30 text-8xl transform rotate-12">
+        <div class="absolute bottom-10 right-10 text-teal-200/20 text-9xl transform rotate-12">
             <i class="fas fa-star-and-crescent"></i>
-        </div>
-        <div class="absolute top-1/2 left-1/4 text-green-200/20 text-6xl">
-            <i class="fas fa-mosque"></i>
         </div>
         
         <div class="max-w-7xl mx-auto w-full relative z-10">
             <!-- Header -->
-            <div class="text-center mb-10 md:mb-14 reveal">
-                <div class="inline-flex items-center gap-3 bg-gradient-to-r from-emerald-600 to-teal-600 px-6 md:px-8 py-3 rounded-full text-white font-semibold mb-6 shadow-lg">
+            <div class="text-center mb-12 md:mb-16 reveal">
+                <div class="inline-flex items-center gap-3 bg-gradient-to-r from-emerald-600 to-teal-600 px-8 py-3 rounded-full text-white font-semibold mb-6 shadow-lg hover:shadow-xl transition-shadow">
                     <i class="fas fa-moon text-yellow-300 text-xl"></i>
-                    <span class="text-sm md:text-base uppercase tracking-wider">Ramadhan Special</span>
+                    <span class="text-sm md:text-base uppercase tracking-wider">Ramadhan Special 2025</span>
                     <i class="fas fa-star text-yellow-300"></i>
                 </div>
-                <h2 class="font-serif text-4xl md:text-5xl lg:text-6xl mb-4 md:mb-6 text-emerald-900">
+                
+                <h2 class="font-serif text-4xl md:text-5xl lg:text-6xl mb-6 text-emerald-900 italic font-bold">
                     Menu Spesial Ramadhan
                 </h2>
+                
+                <div class="w-24 h-1 bg-gradient-to-r from-transparent via-emerald-600 to-transparent mx-auto mb-6"></div>
+                
                 <p class="text-base md:text-lg text-emerald-700 max-w-2xl mx-auto">
                     Koleksi istimewa untuk menemani berbuka puasa Anda 🌙✨
                 </p>
             </div>
 
-            <!-- Ramadhan Menu Grid - Populated by JavaScript (FIX POIN 2) -->
+            <!-- Ramadhan Menu Grid -->
             <div id="ramadhanMenuContainer" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8"></div>
 
-            <!-- Call to Action Banner -->
-            <div class="mt-12 md:mt-16 bg-gradient-to-r from-emerald-600 via-green-600 to-teal-600 rounded-3xl p-8 md:p-12 text-center text-white shadow-2xl reveal relative overflow-hidden">
-                <div class="absolute top-0 left-0 w-full h-full opacity-10">
-                    <div class="absolute top-4 left-10 text-6xl">🌙</div>
-                    <div class="absolute bottom-4 right-10 text-6xl">⭐</div>
-                    <div class="absolute top-1/2 left-1/3 text-5xl">🕌</div>
-                </div>
+            <!-- CTA Banner -->
+            <div class="mt-16 bg-gradient-to-r from-emerald-600 via-green-600 to-teal-600 rounded-3xl p-10 md:p-14 text-center text-white shadow-2xl reveal relative overflow-hidden">
+                <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZGVmcz48cGF0dGVybiBpZD0iZ3JpZCIgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIj48cGF0aCBkPSJNIDQwIDAgTCAwIDAgMCA0MCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJ3aGl0ZSIgc3Ryb2tlLW9wYWNpdHk9IjAuMDUiIHN0cm9rZS13aWR0aD0iMSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNncmlkKSIvPjwvc3ZnPg==')] opacity-30"></div>
                 <div class="relative z-10">
-                    <h3 class="font-serif text-2xl md:text-4xl mb-4">Ramadhan Kareem! 🌙</h3>
-                    <p class="text-base md:text-lg mb-6 text-white/90 max-w-2xl mx-auto">
-                        Pre-order sekarang untuk menu spesial Ramadhan Anda. Limited stock!
+                    <h3 class="font-serif text-3xl md:text-4xl mb-4 italic font-bold">Ramadhan Kareem! 🌙</h3>
+                    <p class="text-base md:text-lg mb-8 text-white/90 max-w-2xl mx-auto">
+                        Pre-order sekarang untuk menu spesial Ramadhan Anda. Limited stock tersedia!
                     </p>
-                    <a href="order.html" class="inline-block bg-white text-emerald-700 px-8 md:px-10 py-4 rounded-full font-bold text-base md:text-lg hover:bg-yellow-50 transition shadow-xl">
-                        <i class="fas fa-shopping-cart mr-2"></i>
-                        Pesan Menu Ramadhan
+                    <a href="order.html" class="inline-flex items-center gap-3 bg-white text-emerald-700 px-10 py-4 rounded-full font-bold text-base md:text-lg hover:bg-yellow-50 transition-all shadow-xl hover:shadow-2xl hover:scale-105">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span>Pesan Menu Ramadhan</span>
                     </a>
                 </div>
             </div>
@@ -223,12 +288,21 @@
     </section>
 
     <!-- FAQ SECTION -->
-    <section id="faq" class="py-16 md:py-20 bg-white px-4 md:px-6">
+    <section id="faq" class="py-20 md:py-28 bg-gradient-to-b from-white to-cream px-4 md:px-6">
         <div class="max-w-4xl mx-auto w-full">
             <div class="text-center mb-12 md:mb-16 reveal">
-                <span class="inline-block bg-primary/10 border border-primary/20 px-4 md:px-6 py-2 rounded-full text-xs md:text-sm font-semibold mb-4 text-primary">FAQ</span>
-                <h2 class="font-serif text-3xl md:text-4xl lg:text-5xl mb-4 md:mb-6 text-primary">Pertanyaan Umum</h2>
+                <div class="inline-flex items-center gap-2 bg-gradient-to-r from-primary/10 to-secondary/10 border border-primary/20 px-6 py-2.5 rounded-full text-xs md:text-sm font-semibold mb-6 text-primary shadow-sm">
+                    <i class="fas fa-question-circle text-tan"></i>
+                    <span class="tracking-wider uppercase">FAQ</span>
+                </div>
+                
+                <h2 class="font-serif text-4xl md:text-5xl lg:text-6xl mb-6 text-primary italic font-bold">
+                    Pertanyaan Umum
+                </h2>
+                
+                <div class="w-24 h-1 bg-gradient-to-r from-transparent via-tan to-transparent mx-auto"></div>
             </div>
+            
             <div class="space-y-4">
                 <div class="faq-item reveal">
                     <button class="faq-button" onclick="toggleFaq(this)">
@@ -241,6 +315,7 @@
                         </div>
                     </div>
                 </div>
+                
                 <div class="faq-item reveal">
                     <button class="faq-button" onclick="toggleFaq(this)">
                         <span class="text-base md:text-lg font-semibold pr-4">Apakah ada layanan pengiriman?</span>
@@ -252,6 +327,7 @@
                         </div>
                     </div>
                 </div>
+                
                 <div class="faq-item reveal">
                     <button class="faq-button" onclick="toggleFaq(this)">
                         <span class="text-base md:text-lg font-semibold pr-4">Berapa lama pre-order?</span>
@@ -268,13 +344,18 @@
     </section>
 
     <!-- FOOTER / CONTACT SECTION -->
-    <footer id="contact" class="bg-primary text-cream py-16 md:py-20 px-4 md:px-6">
-        <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 md:gap-16 w-full">
+    <footer id="contact" class="bg-gradient-to-b from-primary to-secondary text-cream py-20 md:py-28 px-4 md:px-6 relative overflow-hidden">
+        <!-- Decorative Background -->
+        <div class="absolute top-0 right-0 w-96 h-96 bg-tan/5 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-0 left-0 w-80 h-80 bg-tan/5 rounded-full blur-3xl"></div>
+        
+        <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 md:gap-16 w-full relative z-10">
             <div class="reveal">
-                <h3 class="font-serif text-2xl md:text-3xl mb-4 md:mb-6">
-                    <i class="fas fa-map-marker-alt text-tan"></i> Kunjungi Kami
+                <h3 class="font-serif text-3xl md:text-4xl mb-6 flex items-center gap-3 italic font-bold">
+                    <i class="fas fa-map-marker-alt text-tan"></i> 
+                    <span>Kunjungi Kami</span>
                 </h3>
-                <div class="rounded-3xl overflow-hidden h-64 md:h-80 border-4 border-tan/20">
+                <div class="rounded-3xl overflow-hidden h-80 md:h-96 border-4 border-tan/20 shadow-2xl ring-1 ring-tan/10">
                     <iframe 
                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d815.3854369080092!2d95.32741644681334!3d5.527761602791395!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3040390044c30e6b%3A0x87ae8e8a98100c4!2sUlvoria%20Patisserie!5e1!3m2!1sid!2sid!4v1771134813332!5m2!1sid!2sid" 
                         width="100%" 
@@ -285,66 +366,86 @@
                     </iframe>
                 </div>
             </div>
+            
             <div class="flex flex-col justify-center reveal">
-                <div class="mb-6 md:mb-8">
-                    <div class="flex items-center gap-3 mb-4 md:mb-6">
-                        <div class="w-10 h-10 md:w-12 md:h-12 bg-tan rounded-full flex items-center justify-center">
-                            <i class="fas fa-cookie-bite text-primary text-lg md:text-xl"></i>
+                <div class="mb-8">
+                    <div class="flex items-center gap-3 mb-6 hover:scale-105 transition-transform">
+                        <div class="w-12 h-12 md:w-14 md:h-14 bg-tan rounded-full flex items-center justify-center overflow-hidden ring-2 ring-tan/30">
+                            <img src="assets/LogoUlvoria.jpg" alt="Logo" class="w-full h-full object-cover">
                         </div>
-                        <h3 class="font-serif text-3xl md:text-4xl text-tan">Ulvoria</h3>
+                        <h3 class="font-serif text-4xl md:text-5xl text-tan italic font-bold">Ulvoria</h3>
                     </div>
-                    <p class="text-lg md:text-xl mb-2">Premium Patisserie</p>
-                    <p class="text-base md:text-lg opacity-70 mb-4 md:mb-6">
-                        <i class="fas fa-map-pin text-tan"></i> Peunyeurat, Banda Aceh
+                    
+                    <p class="text-xl md:text-2xl mb-2 font-serif italic">Premium Patisserie</p>
+                    
+                    <p class="text-base md:text-lg opacity-70 mb-6 flex items-center gap-2">
+                        <i class="fas fa-map-pin text-tan"></i> 
+                        <span>Peunyeurat, Banda Aceh</span>
                     </p>
-                    <a href="https://wa.me/6283135153353" class="flex items-center gap-3 text-cream hover:text-tan transition group">
-                        <div class="w-10 h-10 md:w-12 md:h-12 bg-tan/20 rounded-full flex items-center justify-center group-hover:bg-tan/30 transition">
-                            <i class="fab fa-whatsapp text-xl md:text-2xl"></i>
+                    
+                    <a href="https://wa.me/6283135153353" class="flex items-center gap-4 text-cream hover:text-tan transition-colors group w-fit">
+                        <div class="w-14 h-14 bg-tan/20 rounded-full flex items-center justify-center group-hover:bg-tan/30 transition-all group-hover:scale-110">
+                            <i class="fab fa-whatsapp text-3xl"></i>
                         </div>
                         <div>
-                            <div class="text-xs md:text-sm opacity-60">WhatsApp</div>
-                            <div class="text-lg md:text-xl font-semibold">0831-3515-3353</div>
+                            <div class="text-xs opacity-60 uppercase tracking-wider">WhatsApp</div>
+                            <div class="text-xl md:text-2xl font-semibold">0831-3515-3353</div>
                         </div>
                     </a>
                 </div>
-                <div class="border-t border-tan/20 pt-6 md:pt-8">
-                    <h4 class="font-serif text-xl md:text-2xl mb-4 md:mb-6 text-tan">
-                        <i class="fas fa-heart"></i> Follow Us
+                
+                <div class="border-t border-tan/20 pt-8">
+                    <h4 class="font-serif text-2xl md:text-3xl mb-6 text-tan flex items-center gap-2 italic font-bold">
+                        <i class="fas fa-heart"></i> 
+                        <span>Follow Us</span>
                     </h4>
                     <div class="flex gap-4">
-                        <a href="https://www.instagram.com/ulvoria.patisserie" class="w-12 h-12 md:w-14 md:h-14 bg-tan/20 rounded-full flex items-center justify-center hover:bg-tan hover:text-primary transition">
-                            <i class="fab fa-instagram text-xl md:text-2xl"></i>
+                        <a href="https://www.instagram.com/ulvoria.patisserie" class="w-14 h-14 md:w-16 md:h-16 bg-tan/20 rounded-full flex items-center justify-center hover:bg-tan hover:text-primary transition-all hover:scale-110 hover:rotate-6">
+                            <i class="fab fa-instagram text-2xl md:text-3xl"></i>
                         </a>
-                        <a href="https://www.tiktok.com/@ulvoria.patisserie" class="w-12 h-12 md:w-14 md:h-14 bg-tan/20 rounded-full flex items-center justify-center hover:bg-tan hover:text-primary transition">
-                            <i class="fab fa-tiktok text-xl md:text-2xl"></i>
+                        <a href="https://www.tiktok.com/@ulvoria.patisserie" class="w-14 h-14 md:w-16 md:h-16 bg-tan/20 rounded-full flex items-center justify-center hover:bg-tan hover:text-primary transition-all hover:scale-110 hover:rotate-6">
+                            <i class="fab fa-tiktok text-2xl md:text-3xl"></i>
                         </a>
                     </div>
                 </div>
             </div>
+        </div>
+        
+        <!-- Copyright -->
+        <div class="max-w-7xl mx-auto mt-16 pt-8 border-t border-tan/20 text-center relative z-10">
+            <p class="text-cream/60 text-sm">
+                © 2024 Ulvoria Patisserie. Made with <i class="fas fa-heart text-tan"></i> in Banda Aceh
+            </p>
         </div>
     </footer>
 
     <!-- MODAL -->
     <div id="modal">
         <div id="modalContent">
-            <button onclick="closeModal()" class="absolute top-4 right-4 md:top-6 md:right-6 z-10 w-10 h-10 bg-primary text-white rounded-full flex items-center justify-center hover:bg-secondary transition">
+            <button onclick="closeModal()" class="absolute top-6 right-6 z-10 w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center hover:bg-secondary hover:rotate-90 transition-all shadow-lg">
                 <i class="fas fa-times"></i>
             </button>
             <div class="flex flex-col md:flex-row">
-                <div class="md:w-1/2 h-48 md:h-auto">
+                <div class="md:w-1/2 h-64 md:h-auto relative overflow-hidden">
                     <img id="modalImg" src="" class="w-full h-full object-cover">
                 </div>
-                <div class="md:w-1/2 p-6 md:p-12">
-                    <h3 id="modalTitle" class="font-serif text-2xl md:text-3xl mb-4 text-primary font-bold italic"></h3>
-                    <p id="modalDesc" class="text-sm md:text-base text-primary/70 mb-4 leading-relaxed"></p>
-                    <div class="mb-6 p-4 bg-cream/30 rounded-xl border border-tan/20">
-                        <p class="text-xs uppercase font-bold tracking-widest text-primary/40 mb-2">Pilihan & Harga</p>
-                        <div id="modalOptions" class="text-xs md:text-sm text-primary font-medium space-y-1"></div>
+                <div class="md:w-1/2 p-8 md:p-12">
+                    <h3 id="modalTitle" class="font-serif text-3xl md:text-4xl mb-4 text-primary font-bold italic"></h3>
+                    <p id="modalDesc" class="text-sm md:text-base text-primary/70 mb-6 leading-relaxed"></p>
+                    
+                    <div class="mb-8 p-5 bg-gradient-to-br from-cream/50 to-tan/10 rounded-2xl border-2 border-tan/20">
+                        <p class="text-xs uppercase font-bold tracking-widest text-primary/50 mb-3 flex items-center gap-2">
+                            <i class="fas fa-list-ul text-tan"></i>
+                            <span>Pilihan & Harga</span>
+                        </p>
+                        <div id="modalOptions" class="text-sm text-primary font-medium space-y-2"></div>
                     </div>
-                    <div class="border-t border-primary/10 pt-6">
-                        <a id="waLink" href="order.html" class="w-full bg-gradient-to-r from-primary to-secondary text-white px-6 md:px-8 py-3 md:py-4 rounded-full font-bold flex items-center justify-center gap-3 hover:shadow-2xl transition text-sm md:text-base">
-                            <i class="fas fa-shopping-cart text-lg md:text-xl"></i>
+                    
+                    <div class="border-t-2 border-primary/10 pt-6">
+                        <a id="waLink" href="order.html" class="w-full bg-gradient-to-r from-primary to-secondary text-white px-8 py-4 rounded-full font-bold flex items-center justify-center gap-3 hover:shadow-2xl transition-all text-base hover:scale-105 group">
+                            <i class="fas fa-shopping-cart text-xl"></i>
                             <span>Pesan Sekarang</span>
+                            <i class="fas fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
                         </a>
                     </div>
                 </div>
