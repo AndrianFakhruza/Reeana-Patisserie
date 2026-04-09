@@ -162,11 +162,7 @@ const ramadhanItems = [
 
 // ========== SEMUA ITEM UNTUK FORM PEMESANAN ==========
 const allMenuItems = [
-    ...menuItems,
-    ...ramadhanItems.map(item => ({
-        ...item,
-        id: item.id
-    }))
+    ...menuItems
 ];
 
 // ========== INTERSECTION OBSERVER ==========
