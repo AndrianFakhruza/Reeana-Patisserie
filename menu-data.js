@@ -25,8 +25,9 @@ const menuItems = [
         price: '20k/25k',
         image: 'assets/FudgyBrownies.png',
         options: [
-            'PaperCup(Ori) : 20k',
-            'PaperCup(Almond) : 25k'
+            'Original : 20k',
+            'Almond : 25k',
+            'Mix Topping : 28k'
         ]
     },
     {
@@ -38,7 +39,7 @@ const menuItems = [
         image: 'assets/BurntCheeseCake.png',
         options: [
             '1-2 person : 55k',
-            'Mini/Slice : 20k'
+            'Mini/Slice : 25k'
         ]
     },
     {
